@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Plot Listing HTML5 Website Template</title>
+    <title>ĐÁ QUÝ THANH XUÂN - THỜI TRANG NAM NỮ THỊNH HÀNH 2021</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -74,7 +74,7 @@ https://templatemo.com/tm-564-plot-listing
   </header>
   <!-- ***** Header Area End ***** -->
 
-  <div class="main-banner">
+  <div class="main-banner" id="banner-home-index">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -617,7 +617,12 @@ https://templatemo.com/tm-564-plot-listing
         <div class="col-lg-4">
           <div class="contact-us">
             <h4>ĐỊA CHỈ</h4>
-            <p>77 MINH MẠNG - THỪA THIÊN HUẾ</p>
+            <div class="row"> 
+              <div class="col-lg-12">
+                <a href="javascript:;">77 MINH MẠNG - THỪA THIÊN HUẾ</a>
+                <br><br>
+              </div>
+            </div>
             <div class="row">
               <div class="col-lg-6">
                 <a href="javascript:;">0931-981-969</a>
@@ -646,5 +651,12 @@ https://templatemo.com/tm-564-plot-listing
   <script src="assets/js/custom.js"></script>
 
 </body>
-
+<script>
+  $(document).ready(function() {
+    var bgArray = ['banner-bg-01.jpg', 'banner-bg-02.jpg', 'banner-bg-03.jpg','banner-bg-04.jpg'];
+    var bg = bgArray[Math.floor(Math.random() * bgArray.length)];
+    var img = 'assets/images/' + bg;
+    $('#banner-home-index').attr('style','background-image:url("'+img+'") !important');
+ });
+</script>
 </html>
