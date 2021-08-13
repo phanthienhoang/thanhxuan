@@ -34,6 +34,16 @@ Route::get(
 )->name('page.introduction');
 
 Route::get(
+    '/san-pham',
+    [PageHomeController::class, 'page_category']
+)->name('page.category');
+
+Route::get(
+    '/san-pham/1',
+    [PageHomeController::class, 'page_detail']
+)->name('page.detail');
+
+Route::get(
     '/shop',
     [ShopController::class, 'index']
 )->name('shop.index');
