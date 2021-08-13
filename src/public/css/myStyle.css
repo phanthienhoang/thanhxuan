@@ -1,0 +1,13 @@
+.fa-truck:before {
+    content: "\f0d1";
+}
+
+.header__top__left ul li i {
+    font-size: 22px;
+    color: #42a8bf;
+}
+
+.header__top__right__language img {
+    width: 30px;
+    height: 20px;
+}
