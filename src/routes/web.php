@@ -3,6 +3,8 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PageHomeController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +20,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get(
     '/',
-    [HomeController::class, 'index']
-)->name('index');
+    [PageHomeController::class, 'page_index']
+)->name('page.index');
+
+Route::get(
+    '/lien-he',
+    [PageHomeController::class, 'page_contact']
+)->name('page.contact');
+
+Route::get(
+    '/gioi-thieu',
+    [PageHomeController::class, 'page_introduction']
+)->name('page.introduction');
 
 Route::get(
     '/shop',
