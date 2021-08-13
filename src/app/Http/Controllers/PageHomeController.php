@@ -37,6 +37,27 @@ class PageHomeController extends Controller
         return view('mypage.page_introduction.index');
     }
 
+
+    /**
+     * Display a listing of the resource.page_category
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function page_category()
+    {
+        return view('mypage.page_category.index');
+    }
+
+    /**
+     * Display a listing of the resource.page_category
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function page_detail()
+    {
+        return view('mypage.page_detail.index');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

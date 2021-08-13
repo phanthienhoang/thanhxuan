@@ -15,8 +15,10 @@
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('thanhxuan/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
-    <!-- Additional CSS Files -->
+    <!-- Additional CSS Files -->	
     <link rel="stylesheet" href="{{ asset('thanhxuan/assets/css/fontawesome.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
     <link rel="stylesheet" href="{{ asset('thanhxuan/assets/css/templatemo-plot-listing.css') }}">
     <link rel="stylesheet" href="{{ asset('thanhxuan/assets/css/animated.css') }}">
     <link rel="stylesheet" href="{{ asset('thanhxuan/assets/css/owl.css') }}">
