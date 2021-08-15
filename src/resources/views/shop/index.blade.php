@@ -13,7 +13,7 @@
                             <ul>   
                                 @if(count($category) > 0)
                                 @foreach($category as $val)
-                                <li><a href="{{route('product.detail',$val['slug'] )}}">{{$val['name']}}</a></li>
+                                <li><a href="">{{$val['name']}}</a></li>
                                 <!-- <li><a href="#">Vegetables</a></li>
                                 <li><a href="#">Papayaya & Crisps</a></li>
                                 <li><a href="#">Oatmeal</a></li>
@@ -109,28 +109,24 @@
                         </div>
                         <div class="sidebar__item">
                             <div class="latest-product__text">
-                                <h4>Latest Products</h4>
+                                <h4>Sản phẩm mới</h4>
                                 <div class="latest-product__slider owl-carousel">
                                     <div class="latest-prdouct__slider__item">
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="{{ URL::asset('images/latest-product/lp-1.jpg') }}" alt="">
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>Crab Pool Security</h6>
-                                                <span>$30.00</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="{{ URL::asset('images/latest-product/lp-2.jpg') }}" alt="">
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>Crab Pool Security</h6>
-                                                <span>$30.00</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="latest-product__item">
+                                        @if(@isset($product_new_ring))
+                                            @foreach($product_new_ring as $product)
+                                                <a href="#" class="latest-product__item">
+                                                    <div class="latest-product__item__pic">
+                                                        <img src="{{ URL::asset('images/latest-product/lp-2.jpg') }}" alt="">
+                                                    </div>
+                                                    <div class="latest-product__item__text">
+                                                        <h6>{{$product->name}}</h6>
+                                                        <span>{{$product->price}}</span>
+                                                    </div>
+                                                </a>
+                                            @endforeach
+                                        @endif
+                                        
+                                        {{-- <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
                                                 <img src="{{ URL::asset('images/latest-product/lp-3.jpg') }}" alt="">
                                             </div>
@@ -138,28 +134,23 @@
                                                 <h6>Crab Pool Security</h6>
                                                 <span>$30.00</span>
                                             </div>
-                                        </a>
+                                        </a> --}}
                                     </div>
                                     <div class="latest-prdouct__slider__item">
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="{{ asset('thanhxuan/assets/images/product/product-01.png') }}" alt="">
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>Crab Pool Security</h6>
-                                                <span>$30.00</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="latest-product__item">
-                                            <div class="latest-product__item__pic">
-                                                <img src="{{ URL::asset('images/latest-product/lp-2.jpg') }}" alt="">
-                                            </div>
-                                            <div class="latest-product__item__text">
-                                                <h6>Crab Pool Security</h6>
-                                                <span>$30.00</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="latest-product__item">
+                                        @if(@isset($product_new_bracelet))
+                                            @foreach($product_new_bracelet as $product)
+                                                <a href="#" class="latest-product__item">
+                                                    <div class="latest-product__item__pic">
+                                                        <img src="{{ URL::asset('images/latest-product/lp-2.jpg') }}" alt="">
+                                                    </div>
+                                                    <div class="latest-product__item__text">
+                                                        <h6>{{$product->name}}</h6>
+                                                        <span>{{$product->price}}</span>
+                                                    </div>
+                                                </a>
+                                            @endforeach
+                                        @endif
+                                        {{-- <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
                                                 <img src="{{ URL::asset('images/latest-product/lp-3.jpg') }}" alt="">
                                             </div>
@@ -167,7 +158,7 @@
                                                 <h6>Crab Pool Security</h6>
                                                 <span>$30.00</span>
                                             </div>
-                                        </a>
+                                        </a> --}}
                                     </div>
                                 </div>
                             </div>
@@ -322,16 +313,14 @@
                             <?php  $img= str_replace('\\',"/",$product->image)?>
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="{{ asset('storage/'.$img) }}">
-                                    <!-- <div class="product__item__pic set-bg" data-setbg=" {{ URL::asset('storage/' . $product->image) }}"> -->
-
-                                   
+                                   <div class="product__item__pic set-bg" data-setbg="{{ asset('storage/'.$img) }}">
                                         <ul class="product__item__pic__hover">
                                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                            <li><a href="{{route('page.detail', $product->id)}}"><i class="fa fa-eye"></i></a></li>
                                             <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
+                                
                                     <div class="product__item__text">
                                         <h6><a href="#">{{$product['name']}}</a></h6>
                                         <h5>{{$product['price']}}</h5>

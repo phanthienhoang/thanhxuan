@@ -33,25 +33,25 @@ Route::get(
     [PageHomeController::class, 'page_introduction']
 )->name('page.introduction');
 
+// Route::get(
+//     '/san-pham',
+//     [PageHomeController::class, 'page_category']
+// )->name('page.category');
+
+// Route::get(
+//     '/san-pham/1',
+//     [PageHomeController::class, 'page_detail']
+// )->name('page.detail');
+
 Route::get(
     '/san-pham',
-    [PageHomeController::class, 'page_category']
-)->name('page.category');
-
-Route::get(
-    '/san-pham/1',
-    [PageHomeController::class, 'page_detail']
-)->name('page.detail');
-
-Route::get(
-    '/shop',
     [ShopController::class, 'index']
-)->name('shop.index');
+)->name('page.product');
 
 Route::get(
-    '/product/{slug}',
-    [ProductController::class, 'detail']
-)->name('product.detail');
+    '/san-pham/{id}',
+    [ShopController::class, 'getProductDetail']
+)->name('page.detail');
 
 Route::get('/shopping-cart', function () {
     return view('product.shopping-cart');
