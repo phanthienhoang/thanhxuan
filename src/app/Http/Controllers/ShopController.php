@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\ProductImage;
 use App\Models\Category;
 
 class ShopController extends Controller
@@ -55,9 +56,10 @@ class ShopController extends Controller
     {
         $category = Category::all();
         $product_detail = Product::where('id', $id)->get();
+        $product_image = ProductImage::where('product_id', $id)->get(); 
         $product_detail[0]['price'] = $this->currency_format($product_detail[0]['price']);
         $product_detail[0]['image'] = str_replace('\\','/', $product_detail[0]['image']);
-        return view('product.detail', compact('category','product_detail'));
+        return view('product.detail', compact('category','product_detail','product_image'));
     }
 
     /**
