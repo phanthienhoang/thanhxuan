@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PageHome;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Product;
 
 
 class PageHomeController extends Controller
@@ -18,7 +19,11 @@ class PageHomeController extends Controller
     {   
         $cagegories = Category::all();
 
-        return view('mypage.page_index.index', compact('cagegories'));
+        $product_hot_ring       = $this->getProductIsHost(1, 2);
+        $product_hot_bracelet   = $this->getProductIsHost(1, 3);
+        $product_hot_buddha     = $this->getProductIsHost(1, 4);
+
+        return view('mypage.page_index.index', compact('cagegories', 'product_hot_ring','product_hot_bracelet','product_hot_buddha'));
     }
 
     /**
@@ -63,68 +68,43 @@ class PageHomeController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
+     * HOT
+     * 2 Nhẫn 
+     * 3 Vòng Tay
+     * 4 Tượng Phật
+     * 5 Tranh phong thuy
+     * 6 Vong co
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function getProductIsHost($isHot, $id)
     {
-        //
+        $product = Product::where('isHot', $isHot)
+                    ->where('category_id', $id)
+                    ->orderBy('created_at')
+                    ->take(3)
+                    ->get();
+
+        foreach($product as $val)
+        {
+            $val['image'] = str_replace('\\','/', $val['image']);
+            $val['price'] = $this->currency_format($val['price']);
+        }
+
+        // dd($product);die;
+        return $product;
     }
 
     /**
-     * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
+     * Chuyển đổi chuỗi kí tự thành dạng slug dùng cho việc tạo friendly url.
      *
-     * @param  \App\Models\PageHome  $pageHome
-     * @return \Illuminate\Http\Response
+     * @access    public
+     * @param    string
+     * @return    string
      */
-    public function show(PageHome $pageHome)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\PageHome  $pageHome
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(PageHome $pageHome)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PageHome  $pageHome
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, PageHome $pageHome)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\PageHome  $pageHome
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(PageHome $pageHome)
-    {
-        //
+    function currency_format($number, $suffix = 'đ') {
+        if (!empty($number)) {
+            return number_format($number, 0, ',', '.') ." " . "{$suffix}";
+        }
     }
 }

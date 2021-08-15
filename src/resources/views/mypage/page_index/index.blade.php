@@ -66,8 +66,8 @@
         </div>
         <div class="col-lg-10 offset-lg-1">
           <ul class="categories">
-            <li><a href="aaa"><span class="icon"><img src="{{ asset('thanhxuan/assets/images/search-icon-01.png') }}" alt="Home"></span> Giới Thiệu</a></li>
-            <li><a href="aaa"><span class="icon"><img src="{{ asset('thanhxuan/assets/images/search-icon-04.png ') }}" alt="Shopping"></span>Mua Hàng</a></li>
+            <li><a href="{{route('page.introduction')}}"><span class="icon"><img src="{{ asset('thanhxuan/assets/images/search-icon-01.png') }}" alt="Home"></span> Giới Thiệu</a></li>
+            <li><a href="{{route('page.product')}}"><span class="icon"><img src="{{ asset('thanhxuan/assets/images/search-icon-04.png ') }}" alt="Shopping"></span>Mua Hàng</a></li>
             <!-- <li><a href="#"><span class="icon"><img src="assets/images/search-icon-05.png" alt="Travel"></span> Traveling</a></li> -->
           </ul>
         </div>
@@ -134,7 +134,7 @@
                                 <h4>Đá quý món quà kỳ diệu của thiên nhiên ban tặng</h4>
                                 <p>Đá quý được kết tinh trong lòng đất trải qua hàng triệu năm hấp thu linh khí đất trời. Chính vì vậy, đá quý  không chỉ là món đồ trang sức giá trị mà còn có nhiều ý nghĩa trong đời sống.
                                   Có thể nói đá quý là món quà kỳ diệu mà thiên nhiên ban tặng cho con người.</p>
-                                  <div class="main-white-button"><a href="listing.html"><i class="fa fa-eye"></i> Xem tất cả sản phẩm</a></div>
+                                  <div class="main-white-button"><a href="{{route('page.product')}}"><i class="fa fa-eye"></i> Xem tất cả sản phẩm</a></div>
                               </div>
                             </div>
                             <div class="col-lg-7 align-self-center">
@@ -154,7 +154,7 @@
                               <div class="left-text">
                                 <h4>Vòng Tay Làm Bằng Đá Hoặc Trầm</h4>
                                 <p>Vòng tay phong thủy là một trong những vật phẩm có công dụng mạnh nhất trong việc thay tài đổi vận, mang lại sức khỏe, công danh, tình duyên, tài lộc.</p>
-                                <div class="main-white-button"><a href="listing.html"><i class="fa fa-eye"></i> Xem tất cả sản phẩm</a></div>
+                                <div class="main-white-button"><a href="{{route('page.product')}}"><i class="fa fa-eye"></i> Xem tất cả sản phẩm</a></div>
                               </div>
                             </div>
                             <div class="col-lg-7 align-self-center">
@@ -174,7 +174,7 @@
                               <div class="left-text">
                                 <h4>Tượng Phật Phong Thủy</h4>
                                 <p>Trầm hương, đá quý được biết đến trong phong thủy như một vật phẩm giúp trừ tà ma. Thường được sử dụng với mong muốn mang lại những điều may mắn. Trầm hương là một loại gỗ quí với hương thơm thanh khiết mà hầu hết các tôn giáo đều sử dụng dể dâng cúng lên các bậc tôn kính của mình. Tượng Phật bằng trầm hương được chế tác từ trầm hương của rừng già.</p>
-                                <div class="main-white-button"><a href="listing.html"><i class="fa fa-eye"></i> Xem tất cả sản phẩm</a></div>
+                                <div class="main-white-button"><a href="{{route('page.product')}}"><i class="fa fa-eye"></i> Xem tất cả sản phẩm</a></div>
                               </div>
                             </div>
                             <div class="col-lg-7 align-self-center">
@@ -194,7 +194,7 @@
                               <div class="left-text">
                                 <h4>Tranh phong thủy là gì?</h4>
                                 <p>Tranh phong thủy được hiểu là loại tranh thu hút sự quan tâm của nhiều ngưởi bởi bức tranh mang lại một vẻ đẹp ấn tượng cho ngôi nhà của bạn, giúp thu hút được sự chú ý của khách đến chơi; không những thế, khi xét về ý nghĩa phong thủy, thì tranh sẽ giúp cho gia chủ cũng như gia đình gặp nhiều điều may mắn, giúp hóa giải điềm xấu, giúp con đường công danh sự nghiệp của gia chủ được thăng tiến.</p>
-                                <div class="main-white-button"><a href="listing.html"><i class="fa fa-eye"></i> Xem tất cả sản phẩm</a></div>
+                                <div class="main-white-button"><a href="{{route('page.product')}}"><i class="fa fa-eye"></i> Xem tất cả sản phẩm</a></div>
                               </div>
                             </div>
                             <div class="col-lg-7 align-self-center">
@@ -214,7 +214,7 @@
                               <div class="left-text">
                                 <h4>Vòng cổ làm bằng đá tự nhiên - trang sức xứng đáng cho cổ của bạn</h4>
                                 <p>Trong thế kỷ hai mươi mốt, các nhà thiết kế trang sức đưa ra một loại rất lớn: từ trang sức rẻ tiền đến các tác phẩm nghệ thuật của tác giả tinh xảo với những viên đá quý đắt nhất. Người mua có thể khó điều hướng trong tất cả sự đa dạng này. Nếu bạn chọn vòng cổ làm bằng đá tự nhiên, bạn chắc chắn sẽ không hối tiếc. Nó sẽ là một trang trí xứng đáng của cổ của bạn.</p>
-                                <div class="main-white-button"><a href="listing.html"><i class="fa fa-eye"></i> Xem tất cả sản phẩm</a></div>
+                                <div class="main-white-button"><a href="{{route('page.product')}}"><i class="fa fa-eye"></i> Xem tất cả sản phẩm</a></div>
                               </div>
                             </div>
                             <div class="col-lg-7 align-self-center">
@@ -250,102 +250,55 @@
           <div class="owl-carousel owl-listing">
             <div class="item">
               <div class="row">
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                      <a href="#"><img src="{{ asset('thanhxuan/assets/images/product/product-01.png') }}" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>1. First Apartment Unit</h4></a>
-                      <h6>by: Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(18) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="{{ asset('thanhxuan/assets/images/listing-icon-01.png') }}" alt=""></div> $450 - $950 / month with taxes</span>
-                      <span class="details">Details: <em>2760 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-02.png') }}" alt=""> 4 Bedrooms</li>
-                        <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-03.png') }}" alt=""> 4 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+
+                @if(isset($product_hot_ring))
+                  @foreach ($product_hot_ring as $product)
+                  <div class="col-lg-12">
+                    <div class="listing-item">
+                      <div class="left-image">
+                        <a href="{{route('page.detail', $product->id .'/' . $product->slug)}}"><img src="{{ asset('storage/'.$product->image) }}" alt=""></a>
+                      </div>
+                      <div class="right-content align-self-center">
+                        <a href="{{route('page.detail', $product->id .'/' . $product->slug)}}"><h4>{{$product->name}}</h4></a>
+                        <h6>by: Đá Quý Thanh Xuân</h6>
+                        <ul class="rate">
+                          <li><i class="fa fa-star-o"></i></li>
+                          <li><i class="fa fa-star-o"></i></li>
+                          <li><i class="fa fa-star-o"></i></li>
+                          <li><i class="fa fa-star-o"></i></li>
+                          <li><i class="fa fa-star-o"></i></li>
+                          <li>(24) Reviews</li>
+                        </ul>
+                        <span class="price"><div class="icon"><img src="{{ asset('thanhxuan/assets/images/listing-icon-01.png') }}" alt=""></div> {{$product->price}}</span>
+                        <span class="details"><em>{{Illuminate\Support\Str::limit($product->seo_description, 50)}}</em></span>
+                        <ul class="info">
+                          {{-- <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-02.png') }}" alt=""> 4 Bedrooms</li>
+                          <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-03.png') }}" alt=""> 3 Bathrooms</li> --}}
+                        </ul>
+                        <div class="main-white-button">
+                          <a href="{{route('page.detail', $product->id .'/' . $product->slug)}}"><i class="fa fa-eye"></i> Xem Ngay</a>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                      <a href="#"><img src="{{ asset('thanhxuan/assets/images/product/product-02.png') }}" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>2. Another House of Gaming</h4></a>
-                      <h6>by: Top Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(24) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="{{ asset('thanhxuan/assets/images/listing-icon-01.png') }}" alt=""></div> $1,400 - $3,500 / month with taxes</span>
-                      <span class="details">Details: <em>3650 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-02.png') }}" alt=""> 4 Bedrooms</li>
-                        <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-03.png') }}" alt=""> 3 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                    <a href="#"><img src="{{ asset('thanhxuan/assets/images/product/product-03.png') }}" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>3. Secret Place Hidden House</h4></a>
-                      <h6>by: Best Property</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(36) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="{{ asset('thanhxuan/assets/images/listing-icon-01.png') }}" alt=""></div> $1,500 - $3,600 / month with taxes</span>
-                      <span class="details">Details: <em>5500 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-02.png') }}" alt=""> 4 Bedrooms</li>
-                        <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-03.png') }}" alt=""> 3 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  @endforeach
+                @endif
+               
+
               </div>
             </div>
             <div class="item">
               <div class="row">
+                @if(isset($product_hot_bracelet))
+                @foreach ($product_hot_bracelet as $product)
                 <div class="col-lg-12">
                   <div class="listing-item">
                     <div class="left-image">
-                    <a href="#"><img src="{{ asset('thanhxuan/assets/images/product/product-04.png') }}" alt=""></a>
+                      <a href="{{route('page.detail', $product->id .'/' . $product->slug)}}"><img src="{{ asset('storage/'.$product->image) }}" alt=""></a>
                     </div>
                     <div class="right-content align-self-center">
-                      <a href="#"><h4>4. Sunshine Fourth Apartment</h4></a>
-                      <h6>by: Sale Agent</h6>
+                      <a href="{{route('page.detail', $product->id .'/' . $product->slug)}}"><h4>{{$product->name}}</h4></a>
+                      <h6>by: Đá Quý Thanh Xuân</h6>
                       <ul class="rate">
                         <li><i class="fa fa-star-o"></i></li>
                         <li><i class="fa fa-star-o"></i></li>
@@ -354,86 +307,37 @@
                         <li><i class="fa fa-star-o"></i></li>
                         <li>(24) Reviews</li>
                       </ul>
-                      <span class="price"><div class="icon"><img src="{{ asset('thanhxuan/assets/images/listing-icon-01.png') }}" alt=""></div> $3,600 / month with taxes</span>
-                      <span class="details">Details: <em>3660 sq ft</em></span>
+                      <span class="price"><div class="icon"><img src="{{ asset('thanhxuan/assets/images/listing-icon-01.png') }}" alt=""></div> {{$product->price}}</span>
+                      <span class="details"><em>{{Illuminate\Support\Str::limit($product->seo_description, 50)}}</em></span>
                       <ul class="info">
-                        <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-02.png') }}" alt=""> 5 Bedrooms</li>
-                        <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-03.png') }}" alt=""> 3 Bathrooms</li>
+                        {{-- <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-02.png') }}" alt=""> 4 Bedrooms</li>
+                        <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-03.png') }}" alt=""> 3 Bathrooms</li> --}}
                       </ul>
                       <div class="main-white-button">
-                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                        <a href="{{route('page.detail', $product->id .'/' . $product->slug)}}"><i class="fa fa-eye"></i> Xem Ngay</a>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                    <a href="#"><img src="{{ asset('thanhxuan/assets/images/product/product-05.png') }}" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>5. Best House Of the Town</h4></a>
-                      <h6>by: Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(32) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="{{ asset('thanhxuan/assets/images/listing-icon-01.png') }}" alt=""></div> $5,600 / month with taxes</span>
-                      <span class="details">Details: <em>1750 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-02.png') }}" alt=""> 6 Bedrooms</li>
-                        <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-03.png') }}" alt=""> 3 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                    <a href="#"><img src="{{ asset('thanhxuan/assets/images/product/product-06.png') }}" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>6. Amazing Pool Party Villa</h4></a>
-                      <h6>by: Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(40) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="{{ asset('thanhxuan/assets/images/listing-icon-01.png') }}" alt=""></div> $3,850 / month with taxes</span>
-                      <span class="details">Details: <em>3660 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-02.png') }}" alt=""> 4 Bedrooms</li>
-                        <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-03.png') }}" alt=""> 3 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                @endforeach
+              @endif
+             
+
+    
               </div>
             </div>
             <div class="item">
               <div class="row">
+                @if(isset($product_hot_buddha))
+                @foreach ($product_hot_buddha as $product)
                 <div class="col-lg-12">
                   <div class="listing-item">
                     <div class="left-image">
-                    <a href="#"><img src="{{ asset('thanhxuan/assets/images/product/product-07.png') }}" alt=""></a>
+                      <a href="{{route('page.detail', $product->id .'/' . $product->slug)}}"><img src="{{ asset('storage/'.$product->image) }}" alt=""></a>
                     </div>
                     <div class="right-content align-self-center">
-                      <a href="#"><h4>7. Sunny Apartment</h4></a>
-                      <h6>by: Sale Agent</h6>
+                      <a href="{{route('page.detail', $product->id .'/' . $product->slug)}}"><h4>{{$product->name}}</h4></a>
+                      <h6>by: Đá Quý Thanh Xuân</h6>
                       <ul class="rate">
                         <li><i class="fa fa-star-o"></i></li>
                         <li><i class="fa fa-star-o"></i></li>
@@ -442,74 +346,20 @@
                         <li><i class="fa fa-star-o"></i></li>
                         <li>(24) Reviews</li>
                       </ul>
-                      <span class="price"><div class="icon"><img src="{{ asset('thanhxuan/assets/images/listing-icon-01.png') }}" alt=""></div> $5,450 / month with taxes</span>
-                      <span class="details">Details: <em>1640 sq ft</em></span>
+                      <span class="price"><div class="icon"><img src="{{ asset('thanhxuan/assets/images/listing-icon-01.png') }}" alt=""></div> {{$product->price}}</span>
+                      <span class="details"><em>{{Illuminate\Support\Str::limit($product->seo_description, 50)}}</em></span>
                       <ul class="info">
-                        <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-02.png') }}" alt=""> 8 Bedrooms</li>
-                        <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-03.png') }}" alt=""> 5 Bathrooms</li>
+                        {{-- <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-02.png') }}" alt=""> 4 Bedrooms</li>
+                        <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-03.png') }}" alt=""> 3 Bathrooms</li> --}}
                       </ul>
                       <div class="main-white-button">
-                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
+                        <a href="{{route('page.detail', $product->id .'/' . $product->slug)}}"><i class="fa fa-eye"></i> Xem Ngay</a>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                    <a href="#"><img src="{{ asset('thanhxuan/assets/images/product/product-08.png') }}" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>8. Third House of Gaming</h4></a>
-                      <h6>by: Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(15) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="{{ asset('thanhxuan/assets/images/listing-icon-01.png') }}" alt=""></div> $5,520 / month with taxes</span>
-                      <span class="details">Details: <em>1660 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-02.png') }}" alt=""> 5 Bedrooms</li>
-                        <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-03.png') }}" alt=""> 4 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                    <a href="#"><img src="{{ asset('thanhxuan/assets/images/product/product-09.png') }}" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>9. Relaxing BBQ Party Villa</h4></a>
-                      <h6>by: Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(20) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="{{ asset('thanhxuan/assets/images/listing-icon-01.png') }}" alt=""></div> $4,760 / month with taxes</span>
-                      <span class="details">Details: <em>2880 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-02.png') }}" alt=""> 6 Bedrooms</li>
-                        <li><img src="{{ asset('thanhxuan/assets/images/listing-icon-03.png') }}" alt=""> 4 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                @endforeach
+              @endif
               </div>
             </div>
           </div>
