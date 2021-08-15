@@ -7,8 +7,8 @@
       <div class="row">
         <div class="col-lg-8">
           <div class="top-text header-text">
-            <h6>THANH XUÂN</h6>
-            <h2>Thành lập năm 2012-Với kinh nghiệm hơn 10 năm trong nghề</h2>
+            <!-- <h6>THANH XUÂN</h6> -->
+            <h2>ĐÁ QUÝ THANH XUÂN - CHUYÊN GIA PHONG THỦY</h2>
           </div>
         </div>
       </div>

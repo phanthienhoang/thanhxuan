@@ -9,18 +9,19 @@
                 <div class="col-lg-3 col-md-5">
                     <div class="sidebar">
                         <div class="sidebar__item">
-                            <h4>Department</h4>
-                            <ul>
-                                <li><a href="#">Fresh Meat</a></li>
-                                <li><a href="#">Vegetables</a></li>
-                                <li><a href="#">Fruit & Nut Gifts</a></li>
-                                <li><a href="#">Fresh Berries</a></li>
-                                <li><a href="#">Ocean Foods</a></li>
-                                <li><a href="#">Butter & Eggs</a></li>
-                                <li><a href="#">Fastfood</a></li>
-                                <li><a href="#">Fresh Onion</a></li>
+                            <h4>Sắp xếp nhanh</h4>
+                            <ul>   
+                                @if(count($category) > 0)
+                                @foreach($category as $val)
+                                <li><a href="{{route('product.detail',$val['slug'] )}}">{{$val['name']}}</a></li>
+                                <!-- <li><a href="#">Vegetables</a></li>
                                 <li><a href="#">Papayaya & Crisps</a></li>
                                 <li><a href="#">Oatmeal</a></li>
+                                <li><a href="#">Fresh Bananas</a></li> -->
+                                @endforeach
+                                @endif
+                                <li><a href="#">Nam</a></li>
+                                <li><a href="#">Nữ</a></li>
                             </ul>
                         </div>
                         <div class="sidebar__item">
@@ -142,7 +143,7 @@
                                     <div class="latest-prdouct__slider__item">
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="{{ URL::asset('images/latest-product/lp-1.jpg') }}" alt="">
+                                                <img src="{{ asset('thanhxuan/assets/images/product/product-01.png') }}" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>Crab Pool Security</h6>
@@ -316,9 +317,32 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6">
+                        @if(isset($product_list))
+                            @foreach($product_list as $product)
+                            <?php  $img= str_replace('\\',"/",$product->image)?>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{{ asset('storage/'.$img) }}">
+                                    <!-- <div class="product__item__pic set-bg" data-setbg=" {{ URL::asset('storage/' . $product->image) }}"> -->
+
+                                   
+                                        <ul class="product__item__pic__hover">
+                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <h6><a href="#">{{$product['name']}}</a></h6>
+                                        <h5>{{$product['price']}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        @endif
+                        <!-- <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{ URL::asset('images/product/product-1.jpg') }}">
+                                <div class="product__item__pic set-bg" data-setbg="{{ asset('thanhxuan/assets/images/product/product-01.png') }}">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -495,14 +519,15 @@
                                     <h5>$30.00</h5>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="product__pagination">
+                    {{ $product_list->links() }}
+                    <!-- <div class="product__pagination">
                         <a href="#">1</a>
                         <a href="#">2</a>
                         <a href="#">3</a>
                         <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
