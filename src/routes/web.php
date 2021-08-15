@@ -29,6 +29,11 @@ Route::get(
 )->name('search');
 
 Route::get(
+    '/search-name',
+    [ShopController::class, 'get_product_by_name']
+)->name('getProductByName');
+
+Route::get(
     '/lien-he',
     [PageHomeController::class, 'page_contact']
 )->name('page.contact');

@@ -55,6 +55,23 @@ class ShopController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function get_product_by_name(Request $request)
+    {   
+        $category = Category::all();
+
+        $product_list = Product::where('name', 'like', '%' . $request->productName . '%')->paginate(12);
+        
+        $product_new_ring = $this->getNewProduct(2);
+        $product_new_bracelet = $this->getNewProduct(3);
+
+        return view('shop.index', compact('category','product_list','product_new_ring','product_new_bracelet'));
+    }
+
+    /**
      * $category_id
      * 2 Nhẫn 
      * 3 Vòng Tay
