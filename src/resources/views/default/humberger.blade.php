@@ -1,7 +1,7 @@
 <div class="humberger__menu__overlay"></div>
 <div class="humberger__menu__wrapper">
     <div class="humberger__menu__logo">
-        <a href="#"><img src="{{ URL::asset('images/logo.png') }}" alt="" /></a>
+        <a href="{{route('page.index')}}"><img src="{{ asset('thanhxuan/assets/images/black-logo.png') }}" alt="" /></a>
     </div>
     <div class="humberger__menu__cart">
         <ul>
@@ -30,19 +30,10 @@
     </div>
     <nav class="humberger__menu__nav mobile-menu">
         <ul>
-            <li class="active"><a href="./index.html">Home</a></li>
-            <li><a href="./shop-grid.html">Shop</a></li>
-            <li>
-                <a href="#">Pages</a>
-                <ul class="header__menu__dropdown">
-                    <li><a href="./shop-details.html">Shop Details</a></li>
-                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                    <li><a href="./checkout.html">Check Out</a></li>
-                    <li><a href="./blog-details.html">Blog Details</a></li>
-                </ul>
-            </li>
-            <li><a href="./blog.html">Blog</a></li>
-            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="{{route('page.index')}}">TRANG CHỦ</a></li>
+            <li class="active"><a href="{{route('page.product')}}">SẢN PHẨM</a></li>
+            <li><a href="{{route('page.introduction')}}">GIỚI THIỆU</a></li>
+            <li><a href="{{route('page.contact')}}">LIÊN HỆ</a></li>
         </ul>
     </nav>
     <div id="mobile-menu-wrap"></div>
