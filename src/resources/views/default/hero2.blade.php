@@ -44,7 +44,7 @@
                             <i class="fa fa-phone"></i>
                         </div>
                         <div class="hero__search__phone__text">
-                            <h5>{{ setting('site.phone') }} </h5>
+                            <h5>08-3579-1111</h5>
                             <span>support 24/7 time</span>
                         </div>
                     </div>
