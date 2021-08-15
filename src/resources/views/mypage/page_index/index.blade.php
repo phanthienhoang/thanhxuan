@@ -11,17 +11,21 @@
           </div>
         </div>
         <div class="col-lg-12">
-          <form id="search-form" name="gs" method="submit" role="search" action="#">
+          <form id="search-form" name="gs" role="search" action="{{ route('search') }}">
+            @method('GET')
             <div class="row">
               <div class="col-lg-3 align-self-center">
                   <fieldset>
-                      <select name="area" class="form-select" aria-label="Area" id="chooseCategory" onchange="this.form.click()">
-                          <option selected>Tất Cả</option>
-                          <option value="New Village">Vòng Tay</option>
+                      <select name="category" class="form-select" aria-label="Area" id="chooseCategory" onchange="this.form.click()">
+                          {{-- <option value="0" selected>Tất Cả</option> --}}
+                          {{-- <option value="New Village">Vòng Tay</option>
                           <option value="Old Town">Đá Quý</option>
                           <option value="Old Town">Tượng Đá Quý</option>
                           <option value="Old Town">Tượng Trầm</option>
-                          <option value="Modern City">Tranh Phong Thủy</option>
+                          <option value="Modern City">Tranh Phong Thủy</option> --}}
+                          @foreach ($cagegories as $cate)
+                            <option value="{{ $cate->id }}">{{ $cate->name }}</option>
+                          @endforeach
                       </select>
                   </fieldset>
               </div>
@@ -33,20 +37,20 @@
               <div class="col-lg-3 align-self-center">
                   <fieldset>
                       <select name="price" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
-                          <option selected>Mức Giá</option>
-                          <option value="$100 - $250">$100 - $250</option>
-                          <option value="$250 - $500">$250 - $500</option>
-                          <option value="$500 - $1000">$500 - $1,000</option>
-                          <option value="$1000+">$1,000 or more</option>
+                          <option value="0" selected>Mức Giá</option>
+                          <option value="1">1 triệu - 3 triệu</option>
+                          <option value="2">3 triệu - 5 triệu</option>
+                          <option value="3">5 triệu - 7 triệu</option>
+                          <option value="4">Trên 7 triệu</option>
                       </select>
                   </fieldset>
               </div>
              <div class="col-lg-3 align-self-center">
                   <fieldset>
-                      <select name="price" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
-                          <option selected>Tùy Chọn</option>
-                          <option value="$100 - $250">Nam</option>
-                          <option value="$250 - $500">Nữ</option>
+                      <select name="gender" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
+                          <option value="2" selected>Tùy Chọn</option>
+                          <option value="0">Nam</option>
+                          <option value="1">Nữ</option>
                           <!-- <option value="$500 - $1000">$500 - $1,000</option>
                           <option value="$1000+">$1,000 or more</option> -->
                       </select>
@@ -54,7 +58,7 @@
               </div>
               <div class="col-lg-3">
                   <fieldset>
-                      <button class="main-button"><i class="fa fa-search"></i> Tìm Nhanh</button>
+                      <button type="submit" class="main-button"><i class="fa fa-search"></i> Tìm Nhanh</button>
                   </fieldset>
               </div>
             </div>

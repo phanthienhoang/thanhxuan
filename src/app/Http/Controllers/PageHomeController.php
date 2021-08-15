@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\PageHome;
 use Illuminate\Http\Request;
+use App\Models\Category;
+
 
 class PageHomeController extends Controller
 {
@@ -13,8 +15,10 @@ class PageHomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function page_index()
-    {
-        return view('mypage.page_index.index');
+    {   
+        $cagegories = Category::all();
+
+        return view('mypage.page_index.index', compact('cagegories'));
     }
 
     /**

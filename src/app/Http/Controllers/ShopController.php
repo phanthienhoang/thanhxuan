@@ -5,9 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 
 class ShopController extends Controller
 {
+    static $priceBetween = [
+        '0' => [1, 100000000],
+        '1' => [1000000, 3000000],
+        '2' => [3000000, 5000000],
+        '3' => [5000000, 7000000],
+        '4' => [7000000, 100000000]
+    ];
+
+    static $genderBetween = [
+        '2' => [0, 1],
+        '0' => [0, 0],
+        '1' => [1, 1]
+    ];
+
     public function index()
     {
         $category = Category::all();
@@ -16,6 +31,26 @@ class ShopController extends Controller
         $product_new_ring = $this->getNewProduct(2);
         $product_new_bracelet = $this->getNewProduct(3);
         // dd($category);
+        return view('shop.index', compact('category','product_list','product_new_ring','product_new_bracelet'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {   
+        $category = Category::all();
+
+        $product_list = Product::where('category_id', $request->category)
+                                        ->whereBetween('cost', self::$priceBetween[$request->price])
+                                        ->whereBetween('gender', self::$genderBetween[$request->gender  ])
+                                        ->paginate(12);
+        
+        $product_new_ring = $this->getNewProduct(2);
+        $product_new_bracelet = $this->getNewProduct(3);
+
         return view('shop.index', compact('category','product_list','product_new_ring','product_new_bracelet'));
     }
 

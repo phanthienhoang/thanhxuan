@@ -24,6 +24,11 @@ Route::get(
 )->name('page.index');
 
 Route::get(
+    '/search',
+    [ShopController::class, 'search']
+)->name('search');
+
+Route::get(
     '/lien-he',
     [PageHomeController::class, 'page_contact']
 )->name('page.contact');
@@ -60,6 +65,8 @@ Route::get('/shopping-cart', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
