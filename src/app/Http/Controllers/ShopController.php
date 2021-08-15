@@ -46,7 +46,7 @@ class ShopController extends Controller
 
         $product_list = Product::where('category_id', $request->category)
                                         ->whereBetween('cost', self::$priceBetween[$request->price])
-                                        ->whereBetween('gender', self::$genderBetween[$request->gender  ])
+                                        ->whereBetween('gender', self::$genderBetween[$request->gender])
                                         ->paginate(12);
         
         $product_new_ring = $this->getNewProduct(2);
@@ -104,7 +104,7 @@ class ShopController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getProductDetail($id)
+    public function getProductDetail($id,$slug)
     {
         $category = Category::all();
         $product_detail = Product::where('id', $id)->get();

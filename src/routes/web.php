@@ -59,7 +59,7 @@ Route::get(
 )->name('page.product');
 
 Route::get(
-    '/san-pham/{id}',
+    '/san-pham/{id}/{slug?}',
     [ShopController::class, 'getProductDetail']
 )->name('page.detail');
 

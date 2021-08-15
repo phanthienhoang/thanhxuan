@@ -319,13 +319,13 @@
                                    <div class="product__item__pic set-bg" data-setbg="{{ asset('storage/'.$img) }}">
                                         <ul class="product__item__pic__hover">
                                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="{{route('page.detail', $product->id)}}"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="{{route('page.detail', $product->id .'/' . $product->slug)}}"><i class="fa fa-eye"></i></a></li>
                                             <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
                                 
                                     <div class="product__item__text">
-                                        <h6><a href="#">{{$product['name']}}</a></h6>
+                                        <h6><a href="{{route('page.detail', $product->id .'/' . $product->slug )}}">{{$product['name']}}</a></h6>
                                         <h5>{{$product['price']}}</h5>
                                     </div>
                                 </div>
