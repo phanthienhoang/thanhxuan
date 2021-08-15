@@ -332,14 +332,19 @@
     -webkit-text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
     text-shadow: rgba(0, 0, 0, .01) 0 0 1px
 }
+/* .header-area{
+    background-color: transparent;
+} */
 
 body {
     font-family: 'Rubik', sans-serif;
     font-size: 14px;
     font-weight: 400;
-    background: #FFFFFF;
+    /* background: #FFFFFF; */
     color: #000000
 }
+
+
 
 div {
     display: block;
@@ -540,10 +545,10 @@ img {
 <div class="page-heading">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-12">
           <div class="top-text header-text">
-            <h6>THANH XUÂN</h6>
-            <h2>Thành lập năm 2012-Với kinh nghiệm hơn 10 năm trong nghề</h2>
+            <!-- <h6>THANH XUÂN</h6> -->
+            <h2>ĐÁ QUÝ THANH XUÂN - CHUYÊN PHONG THỦY </h2>
           </div>
         </div>
       </div>
@@ -727,7 +732,7 @@ img {
                 </div>
             </div>
             <div class="row row-underline">
-                <div class="col-md-6"> <span class=" deal-text">Specifications</span> </div>
+                <div class="col-md-6"> <span class=" deal-text">Mô tả</span> </div>
                 <div class="col-md-6"> <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a> </div>
             </div>
             <div class="row">
