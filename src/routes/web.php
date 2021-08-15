@@ -34,6 +34,11 @@ Route::get(
 )->name('getProductByName');
 
 Route::get(
+    '/san-pham-theo-loai/{id}/{slug?}',
+    [ShopController::class, 'get_product_by_category']
+)->name('getProductByCategory');
+
+Route::get(
     '/lien-he',
     [PageHomeController::class, 'page_contact']
 )->name('page.contact');

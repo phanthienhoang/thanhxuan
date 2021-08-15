@@ -27,12 +27,11 @@ class ShopController extends Controller
     public function index()
     {
         $category = Category::all();
-        // $product_list = Product::paginate(12);
         $product_list = Product::orderBy('updated_at', 'desc')->paginate(12);
         $product_new_ring = $this->getNewProduct(2);
         $product_new_bracelet = $this->getNewProduct(3);
-        // dd($category);
-        return view('shop.index', compact('category','product_list','product_new_ring','product_new_bracelet'));
+        $product_hot = $this->getProductIsHost(1);
+        return view('shop.index', compact('category','product_list','product_new_ring','product_new_bracelet','product_hot'));
     }
 
     /**
@@ -51,8 +50,8 @@ class ShopController extends Controller
         
         $product_new_ring = $this->getNewProduct(2);
         $product_new_bracelet = $this->getNewProduct(3);
-
-        return view('shop.index', compact('category','product_list','product_new_ring','product_new_bracelet'));
+        $product_hot = $this->getProductIsHost(1);
+        return view('shop.index', compact('category','product_list','product_new_ring','product_new_bracelet','product_hot'));
     }
 
     /**
@@ -68,8 +67,45 @@ class ShopController extends Controller
         
         $product_new_ring = $this->getNewProduct(2);
         $product_new_bracelet = $this->getNewProduct(3);
+        //$product_hot = $this->getProductIsHost(1);
 
-        return view('shop.index', compact('category','product_list','product_new_ring','product_new_bracelet'));
+        // tắt sản phẩm nổi bật khi tìm kiếm
+        $product_hot = [];
+
+        return view('shop.index', compact('category','product_list','product_new_ring','product_new_bracelet','product_hot'));
+    }
+
+    /**
+     * $category_id
+     * 2 Nhẫn 
+     * 3 Vòng Tay
+     * 4 Tượng Phật
+     * 5 Tranh phong thuy
+     * 6 Vong co
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function get_product_by_category($category_id,$slug)
+    {
+        $category = Category::all();
+
+        $product_list = Product::where('category_id', $category_id)
+                    ->orderBy('created_at')
+                    ->paginate(12);
+
+        foreach($product_list as $val)
+        {
+            $val['image'] = str_replace('\\','/', $val['image']);
+            $val['price'] = $this->currency_format($val['price']);
+        }
+
+        $product_new_ring = $this->getNewProduct(2);
+        $product_new_bracelet = $this->getNewProduct(3);
+        // $product_hot = $this->getProductIsHost(1);
+
+        // tắt sản phẩm nổi bật khi tìm kiếm
+        $product_hot = [];
+        return view('shop.index', compact('category','product_list','product_new_ring','product_new_bracelet','product_hot'));
     }
 
     /**
@@ -92,6 +128,29 @@ class ShopController extends Controller
         foreach($product as $val)
         {
             $val['image'] = str_replace('\\','/', $val['image']);
+            $val['price'] = $this->currency_format($val['price']);
+        }
+
+        // dd($product);die;
+        return $product;
+    }
+
+    /**
+     * HOT
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getProductIsHost($isHot)
+    {
+        $product = Product::where('isHot', $isHot)
+                    ->orderBy('created_at')
+                    ->take(6)
+                    ->get();
+
+        foreach($product as $val)
+        {
+            $val['image'] = str_replace('\\','/', $val['image']);
+            $val['price'] = $this->currency_format($val['price']);
         }
 
         // dd($product);die;
@@ -111,6 +170,7 @@ class ShopController extends Controller
         $product_image = ProductImage::where('product_id', $id)->get(); 
         $product_detail[0]['price'] = $this->currency_format($product_detail[0]['price']);
         $product_detail[0]['image'] = str_replace('\\','/', $product_detail[0]['image']);
+
         return view('product.detail', compact('category','product_detail','product_image'));
     }
 
