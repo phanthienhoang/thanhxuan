@@ -46,7 +46,7 @@ class ShopController extends Controller
         $product_list = Product::where('category_id', $request->category)
                                         ->whereBetween('cost', self::$priceBetween[$request->price])
                                         ->whereBetween('gender', self::$genderBetween[$request->gender])
-                                        ->paginate(12);
+                                        ->paginate(12)->withQueryString();
         
         $product_new_ring = $this->getNewProduct(2);
         $product_new_bracelet = $this->getNewProduct(3);
@@ -63,7 +63,7 @@ class ShopController extends Controller
     {   
         $category = Category::all();
 
-        $product_list = Product::where('name', 'like', '%' . $request->productName . '%')->paginate(12);
+        $product_list = Product::where('name', 'like', '%' . $request->productName . '%')->paginate(12)->withQueryString();
         
         $product_new_ring = $this->getNewProduct(2);
         $product_new_bracelet = $this->getNewProduct(3);
