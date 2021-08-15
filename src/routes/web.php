@@ -49,7 +49,7 @@ Route::get(
 )->name('shop.index');
 
 Route::get(
-    '/product',
+    '/product/{slug}',
     [ProductController::class, 'detail']
 )->name('product.detail');
 

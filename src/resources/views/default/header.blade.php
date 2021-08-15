@@ -33,9 +33,9 @@
                                 <li><a href="#">Vietnamese</a></li>
                             </ul>
                         </div>
-                        <div class="header__top__right__auth">
+                        <!-- <div class="header__top__right__auth">
                             <a href="#"><i class="fa fa-user"></i> Login</a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -45,25 +45,16 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="header__logo">
-                    <a href="/"><img src="{{ URL::asset('images/logo.png') }}" alt="" /></a>
+                    <a href="{{route('page.index')}}"><img src="{{ asset('thanhxuan/assets/images/black-logo.png') }}" alt="" /></a>
                 </div>
             </div>
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="/">Home</a></li>
-                        <li><a href="/shop">Shop</a></li>
-                        <li>
-                            <a href="#">Pages</a>
-                            <ul class="header__menu__dropdown">
-                                <li><a href="/product">Product Details</a></li>
-                                <li><a href="/shopping-cart">Shoping Cart</a></li>
-                                <li><a href="./checkout.html">Check Out</a></li>
-                                <li><a href="./blog-details.html">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="/contact">Contact</a></li>
+                        <li class="active"><a href="{{route('page.index')}}">TRANG CHỦ</a></li>
+                        <li><a href="/shop">SẢN PHẨM</a></li>
+                        <li><a href="{{route('page.introduction')}}">GIỚI THIỆU</a></li>
+                        <li><a href="{{route('page.contact')}}">LIÊN HỆ</a></li>
                     </ul>
                 </nav>
             </div>

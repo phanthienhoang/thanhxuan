@@ -52,9 +52,9 @@
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li><a href="{{route('page.index')}}">TRANG CHỦ</a></li>
-              <li><a href="listing.html">SẢN PHẨM</a></li>
-              <li><a href="{{route('page.introduction')}}">Giới Thiệu</a></li>
-              <li><a href="{{route('page.contact')}}">Liên Hệ</a></li>
+              <li><a href="{{route('page.category')}}">SẢN PHẨM</a></li>
+              <li><a href="{{route('page.introduction')}}">GIỚI THIỆU</a></li>
+              <li><a href="{{route('page.contact')}}">LIÊN HỆ</a></li>
               <li><div class="main-white-button"><a href="#"><i class="fa fa-plus"></i> Giỏ Hàng</a></div></li> 
             </ul>
             <a class='menu-trigger'>

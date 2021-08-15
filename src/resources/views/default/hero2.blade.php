@@ -5,11 +5,14 @@
                 <div class="hero__categories">
                     <div class="hero__categories__all">
                         <i class="fa fa-bars"></i>
-                        <span>All departments</span>
+                        <span>Danh sách sản phẩm</span>
                     </div>
+
                     <ul>
-                        <li><a href="#">Fresh Meat</a></li>
-                        <li><a href="#">Vegetables</a></li>
+                        @if(count($category) > 0)
+                        @foreach($category as $val)
+                        <li><a href="{{route('product.detail',$val['slug'] )}}">{{$val['name']}}</a></li>
+                        <!-- <li><a href="#">Vegetables</a></li>
                         <li><a href="#">Fruit & Nut Gifts</a></li>
                         <li><a href="#">Fresh Berries</a></li>
                         <li><a href="#">Ocean Foods</a></li>
@@ -18,7 +21,9 @@
                         <li><a href="#">Fresh Onion</a></li>
                         <li><a href="#">Papayaya & Crisps</a></li>
                         <li><a href="#">Oatmeal</a></li>
-                        <li><a href="#">Fresh Bananas</a></li>
+                        <li><a href="#">Fresh Bananas</a></li> -->
+                        @endforeach
+                        @endif
                     </ul>
                 </div>
             </div>
