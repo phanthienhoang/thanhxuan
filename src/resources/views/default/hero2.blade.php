@@ -11,7 +11,7 @@
                     <ul>
                         @if(count($category) > 0)
                         @foreach($category as $val)
-                        <li><a href="">{{$val['name']}}</a></li>
+                        <li><a href="{{route('getProductByCategory', $val->id .'/'.$val->slug)}}">{{$val->name}}</a></li>
                         <!-- <li><a href="#">Vegetables</a></li>
                         <li><a href="#">Fruit & Nut Gifts</a></li>
                         <li><a href="#">Fresh Berries</a></li>

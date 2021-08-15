@@ -13,15 +13,15 @@
                             <ul>   
                                 @if(count($category) > 0)
                                 @foreach($category as $val)
-                                <li><a href="">{{$val['name']}}</a></li>
+                                <li><a href="{{route('getProductByCategory', $val->id .'/'.$val->slug)}}">{{$val->name}}</a></li>
                                 <!-- <li><a href="#">Vegetables</a></li>
                                 <li><a href="#">Papayaya & Crisps</a></li>
                                 <li><a href="#">Oatmeal</a></li>
                                 <li><a href="#">Fresh Bananas</a></li> -->
                                 @endforeach
                                 @endif
-                                <li><a href="#">Nam</a></li>
-                                <li><a href="#">Nữ</a></li>
+                                {{-- <li><a href="#">Nam</a></li>
+                                <li><a href="#">Nữ</a></li> --}}
                             </ul>
                         </div>
                         <div class="sidebar__item">
@@ -114,9 +114,9 @@
                                     <div class="latest-prdouct__slider__item">
                                         @if(@isset($product_new_ring))
                                             @foreach($product_new_ring as $product)
-                                                <a href="#" class="latest-product__item">
+                                                <a href="{{route('page.detail', $product->id .'/' . $product->slug)}}" class="latest-product__item">
                                                     <div class="latest-product__item__pic">
-                                                        <img src="{{ URL::asset('images/latest-product/lp-2.jpg') }}" alt="">
+                                                        <img src="{{ asset('storage/'.$product->image) }}" alt="">
                                                     </div>
                                                     <div class="latest-product__item__text">
                                                         <h6>{{$product->name}}</h6>
@@ -139,9 +139,9 @@
                                     <div class="latest-prdouct__slider__item">
                                         @if(@isset($product_new_bracelet))
                                             @foreach($product_new_bracelet as $product)
-                                                <a href="#" class="latest-product__item">
+                                                <a href="{{route('page.detail', $product->id .'/' . $product->slug)}}" class="latest-product__item">
                                                     <div class="latest-product__item__pic">
-                                                        <img src="{{ URL::asset('images/latest-product/lp-2.jpg') }}" alt="">
+                                                        <img src="{{ asset('storage/'.$product->image) }}" alt="">
                                                     </div>
                                                     <div class="latest-product__item__text">
                                                         <h6>{{$product->name}}</h6>
@@ -166,123 +166,38 @@
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-7">
+                    @if(count($product_hot)>0)
                     <div class="product__discount">
                         <div class="section-title product__discount__title">
-                            <h2>Sale Off</h2>
+                            <h2>Sản phẩm nổi bật</h2>
                         </div>
                         <div class="row">
                             <div class="product__discount__slider owl-carousel">
-                                <div class="col-lg-4">
-                                    <div class="product__discount__item">
-                                        <div class="product__discount__item__pic set-bg"
-                                            data-setbg="{{ URL::asset('images/product/discount/pd-1.jpg') }}">
-                                            <div class="product__discount__percent">-20%</div>
-                                            <ul class="product__item__pic__hover">
-                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="product__discount__item__text">
-                                            <span>Dried Fruit</span>
-                                            <h5><a href="#">Raisin’n’nuts</a></h5>
-                                            <div class="product__item__price">$30.00 <span>$36.00</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="product__discount__item">
-                                        <div class="product__discount__item__pic set-bg"
-                                            data-setbg="{{ URL::asset('images/product/discount/pd-2.jpg') }}">
-                                            <div class="product__discount__percent">-20%</div>
-                                            <ul class="product__item__pic__hover">
-                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="product__discount__item__text">
-                                            <span>Vegetables</span>
-                                            <h5><a href="#">Vegetables’package</a></h5>
-                                            <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                                @foreach ($product_hot as $product)
+                                    <div class="col-lg-4">
+                                        <div class="product__discount__item">
+                                            <div class="product__discount__item__pic set-bg"
+                                                data-setbg="{{ asset('storage/'. $product->image) }}">
+                                                <div class="product__discount__percent">HOT</div>
+                                                <ul class="product__item__pic__hover">
+                                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                    <li><a href="{{route('page.detail', $product->id .'/' . $product->slug )}}"><i class="fa fa-eye"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="product__discount__item__text">
+                                                {{-- <span>{{$product->name}}</span> --}}
+                                                <h5><a href="{{route('page.detail', $product->id .'/' . $product->slug )}}">{{Illuminate\Support\Str::limit($product->name,25)}}</a></h5>
+                                                {{-- <div class="product__item__price">{{$product->price}} <span>$36.00</span></div> --}}
+                                                <div class="product__item__price">{{$product->price}}</div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="product__discount__item">
-                                        <div class="product__discount__item__pic set-bg"
-                                            data-setbg="{{ URL::asset('images/product/discount/pd-3.jpg') }}">
-                                            <div class="product__discount__percent">-20%</div>
-                                            <ul class="product__item__pic__hover">
-                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="product__discount__item__text">
-                                            <span>Dried Fruit</span>
-                                            <h5><a href="#">Mixed Fruitss</a></h5>
-                                            <div class="product__item__price">$30.00 <span>$36.00</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="product__discount__item">
-                                        <div class="product__discount__item__pic set-bg"
-                                            data-setbg="{{ URL::asset('images/product/discount/pd-4.jpg') }}">
-                                            <div class="product__discount__percent">-20%</div>
-                                            <ul class="product__item__pic__hover">
-                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="product__discount__item__text">
-                                            <span>Dried Fruit</span>
-                                            <h5><a href="#">Raisin’n’nuts</a></h5>
-                                            <div class="product__item__price">$30.00 <span>$36.00</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="product__discount__item">
-                                        <div class="product__discount__item__pic set-bg"
-                                            data-setbg="{{ URL::asset('images/product/discount/pd-5.jpg') }}">
-                                            <div class="product__discount__percent">-20%</div>
-                                            <ul class="product__item__pic__hover">
-                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="product__discount__item__text">
-                                            <span>Dried Fruit</span>
-                                            <h5><a href="#">Raisin’n’nuts</a></h5>
-                                            <div class="product__item__price">$30.00 <span>$36.00</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="product__discount__item">
-                                        <div class="product__discount__item__pic set-bg"
-                                            data-setbg="{{ URL::asset('images/product/discount/pd-6.jpg') }}">
-                                            <div class="product__discount__percent">-20%</div>
-                                            <ul class="product__item__pic__hover">
-                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="product__discount__item__text">
-                                            <span>Dried Fruit</span>
-                                            <h5><a href="#">Raisin’n’nuts</a></h5>
-                                            <div class="product__item__price">$30.00 <span>$36.00</span></div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
+                    @endif
                     <div class="filter__item">
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
@@ -325,7 +240,7 @@
                                     </div>
                                 
                                     <div class="product__item__text">
-                                        <h6><a href="{{route('page.detail', $product->id .'/' . $product->slug )}}">{{$product['name']}}</a></h6>
+                                        <h6><a href="{{route('page.detail', $product->id .'/' . $product->slug )}}">{{Illuminate\Support\Str::limit($product->name,30)}}</a></h6>
                                         <h5>{{$product['price']}}</h5>
                                     </div>
                                 </div>
