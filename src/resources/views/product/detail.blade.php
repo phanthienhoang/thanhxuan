@@ -13,11 +13,11 @@
                                 alt="">
                         </div>
                         <div class="product__details__pic__slider owl-carousel">
-                            @if(isset($product_image))
+                            @if(count($product_image)>0)
                                 @foreach ($product_image as $item)
                                     <img data-imgbigurl="{{ asset('storage/'.$item['image']) }}"
                                     src="{{ asset('storage/'.$item['image']) }}" alt="">
-                                @endforeach 
+                                @endforeach
                             @else
                                 <img data-imgbigurl="{{ asset('storage/'.$product_detail[0]['image']) }}"
                                 src="{{ asset('storage/'.$product_detail[0]['image']) }}" alt="">
