@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 15, 2021 lúc 05:41 PM
--- Phiên bản máy phục vụ: 10.4.14-MariaDB
--- Phiên bản PHP: 7.4.10
+-- Host: 127.0.0.1
+-- Generation Time: Aug 18, 2021 at 12:07 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 7.4.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `tramdathanhxuan`
+-- Database: `tramdathanhxuan`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE `categories` (
@@ -41,7 +41,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `name`, `slug`, `seo_title`, `description`, `seo_description`, `created_at`, `updated_at`, `deleted_at`, `image`) VALUES
@@ -54,7 +54,7 @@ INSERT INTO `categories` (`id`, `name`, `slug`, `seo_title`, `description`, `seo
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `data_rows`
+-- Table structure for table `data_rows`
 --
 
 CREATE TABLE `data_rows` (
@@ -74,7 +74,7 @@ CREATE TABLE `data_rows` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `data_rows`
+-- Dumping data for table `data_rows`
 --
 
 INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, `required`, `browse`, `read`, `edit`, `add`, `delete`, `details`, `order`) VALUES
@@ -141,9 +141,6 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (61, 12, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
 (62, 12, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, '{}', 2),
 (63, 12, 'slug', 'text', 'Slug', 0, 1, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"name\",\"forceUpdate\":true}}', 3),
-(64, 12, 'email', 'text', 'Email', 0, 1, 1, 1, 1, 1, '{}', 4),
-(65, 12, 'address', 'text', 'Address', 0, 1, 1, 1, 1, 1, '{}', 5),
-(66, 12, 'phone', 'text', 'Phone', 0, 1, 1, 1, 1, 1, '{}', 6),
 (67, 12, 'deleted_at', 'timestamp', 'Deleted At', 0, 1, 1, 1, 1, 1, '{}', 7),
 (68, 12, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 8),
 (69, 12, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 9),
@@ -155,12 +152,13 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (75, 7, 'product_belongsto_category_relationship', 'relationship', 'categories', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Category\",\"table\":\"categories\",\"type\":\"belongsTo\",\"column\":\"category_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 14),
 (76, 7, 'product_hasmany_product_image_relationship', 'relationship', 'product_images', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\ProductImage\",\"table\":\"product_images\",\"type\":\"hasMany\",\"column\":\"product_id\",\"key\":\"id\",\"label\":\"image\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 21),
 (77, 8, 'category_hasmany_product_relationship', 'relationship', 'products', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Product\",\"table\":\"products\",\"type\":\"hasMany\",\"column\":\"category_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 10),
-(78, 11, 'product_image_belongsto_product_relationship', 'relationship', 'products', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Product\",\"table\":\"products\",\"type\":\"belongsTo\",\"column\":\"product_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 7);
+(78, 11, 'product_image_belongsto_product_relationship', 'relationship', 'products', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Product\",\"table\":\"products\",\"type\":\"belongsTo\",\"column\":\"product_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 7),
+(79, 9, 'stone_id', 'text', 'Stone Id', 1, 1, 1, 1, 1, 1, '{}', 11);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `data_types`
+-- Table structure for table `data_types`
 --
 
 CREATE TABLE `data_types` (
@@ -182,7 +180,7 @@ CREATE TABLE `data_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `data_types`
+-- Dumping data for table `data_types`
 --
 
 INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`) VALUES
@@ -191,14 +189,14 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', '', 1, 0, NULL, '2021-02-17 20:59:04', '2021-02-17 20:59:04'),
 (7, 'products', 'products', 'Product', 'Products', NULL, 'App\\Models\\Product', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2021-02-18 00:21:44', '2021-02-18 02:41:44'),
 (8, 'categories', 'categories', 'Category', 'Categories', 'voyager-categories', 'App\\Models\\Category', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2021-02-18 00:25:47', '2021-02-18 02:35:21'),
-(9, 'news', 'news', 'News', 'News', NULL, 'App\\Models\\News', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2021-02-18 01:29:18', '2021-02-18 02:41:16'),
+(9, 'news', 'news', 'News', 'News', NULL, 'App\\Models\\News', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2021-02-18 01:29:18', '2021-08-18 01:53:23'),
 (11, 'product_images', 'product-images', 'Product Image', 'Product Images', NULL, 'App\\Models\\ProductImage', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2021-02-18 01:40:04', '2021-02-18 02:26:09'),
-(12, 'vendors', 'vendors', 'Vendor', 'Vendors', NULL, 'App\\Models\\Vendor', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2021-02-18 01:41:08', '2021-02-18 02:34:06');
+(12, 'vendors', 'vendors', 'Vendor', 'Vendors', NULL, 'App\\Models\\Vendor', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2021-02-18 01:41:08', '2021-08-18 01:46:32');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `failed_jobs`
+-- Table structure for table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -214,7 +212,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `menus`
+-- Table structure for table `menus`
 --
 
 CREATE TABLE `menus` (
@@ -225,7 +223,7 @@ CREATE TABLE `menus` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `menus`
+-- Dumping data for table `menus`
 --
 
 INSERT INTO `menus` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -234,7 +232,7 @@ INSERT INTO `menus` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `menu_items`
+-- Table structure for table `menu_items`
 --
 
 CREATE TABLE `menu_items` (
@@ -254,31 +252,31 @@ CREATE TABLE `menu_items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `menu_items`
+-- Dumping data for table `menu_items`
 --
 
 INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
 (1, 1, 'Dashboard', '', '_self', 'voyager-boat', NULL, NULL, 1, '2021-02-17 20:59:05', '2021-02-17 20:59:05', 'voyager.dashboard', NULL),
-(2, 1, 'Media', '', '_self', 'voyager-images', NULL, NULL, 5, '2021-02-17 20:59:05', '2021-02-17 20:59:05', 'voyager.media.index', NULL),
+(2, 1, 'Media', '', '_self', 'voyager-images', NULL, NULL, 4, '2021-02-17 20:59:05', '2021-08-18 01:44:32', 'voyager.media.index', NULL),
 (3, 1, 'Users', '', '_self', 'voyager-person', NULL, NULL, 3, '2021-02-17 20:59:05', '2021-02-17 20:59:05', 'voyager.users.index', NULL),
 (4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, NULL, 2, '2021-02-17 20:59:05', '2021-02-17 20:59:05', 'voyager.roles.index', NULL),
-(5, 1, 'Tools', '', '_self', 'voyager-tools', NULL, NULL, 9, '2021-02-17 20:59:05', '2021-02-17 20:59:05', NULL, NULL),
-(6, 1, 'Menu Builder', '', '_self', 'voyager-list', NULL, 5, 10, '2021-02-17 20:59:05', '2021-02-17 20:59:05', 'voyager.menus.index', NULL),
-(7, 1, 'Database', '', '_self', 'voyager-data', NULL, 5, 11, '2021-02-17 20:59:05', '2021-02-17 20:59:05', 'voyager.database.index', NULL),
-(8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 12, '2021-02-17 20:59:05', '2021-02-17 20:59:05', 'voyager.compass.index', NULL),
-(9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 13, '2021-02-17 20:59:05', '2021-02-17 20:59:05', 'voyager.bread.index', NULL),
-(10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, NULL, 14, '2021-02-17 20:59:05', '2021-02-17 20:59:05', 'voyager.settings.index', NULL),
-(11, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 13, '2021-02-17 20:59:08', '2021-02-17 20:59:08', 'voyager.hooks', NULL),
-(12, 1, 'Products', '', '_self', NULL, NULL, NULL, 15, '2021-02-18 00:21:45', '2021-02-18 00:21:45', 'voyager.products.index', NULL),
-(13, 1, 'Categories', '', '_self', NULL, NULL, NULL, 16, '2021-02-18 00:25:47', '2021-02-18 00:25:47', 'voyager.categories.index', NULL),
-(14, 1, 'News', '', '_self', NULL, NULL, NULL, 17, '2021-02-18 01:29:18', '2021-02-18 01:29:18', 'voyager.news.index', NULL),
-(15, 1, 'Product Images', '', '_self', NULL, NULL, NULL, 18, '2021-02-18 01:40:04', '2021-02-18 01:40:04', 'voyager.product-images.index', NULL),
-(16, 1, 'Vendors', '', '_self', NULL, NULL, NULL, 19, '2021-02-18 01:41:09', '2021-02-18 01:41:09', 'voyager.vendors.index', NULL);
+(5, 1, 'Tools', '', '_self', 'voyager-tools', NULL, NULL, 5, '2021-02-17 20:59:05', '2021-08-18 01:44:32', NULL, NULL),
+(6, 1, 'Menu Builder', '', '_self', 'voyager-list', NULL, 5, 1, '2021-02-17 20:59:05', '2021-08-18 01:44:32', 'voyager.menus.index', NULL),
+(7, 1, 'Database', '', '_self', 'voyager-data', NULL, 5, 2, '2021-02-17 20:59:05', '2021-08-18 01:44:32', 'voyager.database.index', NULL),
+(8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 3, '2021-02-17 20:59:05', '2021-08-18 01:44:32', 'voyager.compass.index', NULL),
+(9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 4, '2021-02-17 20:59:05', '2021-08-18 01:44:32', 'voyager.bread.index', NULL),
+(10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, NULL, 6, '2021-02-17 20:59:05', '2021-08-18 01:44:32', 'voyager.settings.index', NULL),
+(11, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 5, '2021-02-17 20:59:08', '2021-08-18 01:44:32', 'voyager.hooks', NULL),
+(12, 1, 'Products', '', '_self', NULL, NULL, NULL, 7, '2021-02-18 00:21:45', '2021-08-18 01:44:32', 'voyager.products.index', NULL),
+(13, 1, 'Categories', '', '_self', NULL, NULL, NULL, 8, '2021-02-18 00:25:47', '2021-08-18 01:44:32', 'voyager.categories.index', NULL),
+(14, 1, 'News', '', '_self', NULL, NULL, NULL, 9, '2021-02-18 01:29:18', '2021-08-18 01:44:32', 'voyager.news.index', NULL),
+(15, 1, 'Product Images', '', '_self', NULL, NULL, NULL, 10, '2021-02-18 01:40:04', '2021-08-18 01:44:32', 'voyager.product-images.index', NULL),
+(16, 1, 'Stone', '', '_self', NULL, '#000000', NULL, 11, '2021-02-18 01:41:09', '2021-08-18 01:44:32', 'voyager.vendors.index', 'null');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -288,7 +286,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -319,7 +317,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `news`
+-- Table structure for table `news`
 --
 
 CREATE TABLE `news` (
@@ -332,13 +330,24 @@ CREATE TABLE `news` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `stone_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `title`, `content`, `seo_title`, `seo_content`, `slug`, `deleted_at`, `created_at`, `updated_at`, `image`, `stone_id`) VALUES
+(1, 'Đá Tourmaline là gì? Nguồn gốc thành tạo? Thành phần hóa học', '<h3 style=\"box-sizing: border-box; color: #0a0a0a; width: 720px; margin-top: 0px; margin-bottom: 0.5em; text-rendering: optimizespeed; font-size: 1.25em; font-family: Mulish, sans-serif;\"><span style=\"box-sizing: border-box; font-weight: bolder;\"><img title=\"2131\" src=\"http://127.0.0.1:8000/storage/news/August2021/banner-2.jpg\" alt=\"sads\" width=\"21\" />Đ&aacute; Tourmaline l&agrave; g&igrave;?</span></h3>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">Loại đ&aacute; n&agrave;y l&agrave; sự kết hợp của kho&aacute;ng chất boron tinh thể silicat c&oacute; cấu tr&uacute;c phức tạp với c&aacute;c nguy&ecirc;n tố như natri, sắt, magie, nh&ocirc;m, kali v&agrave; lithium.</p>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">V&igrave; được kết hợp nhiều nguy&ecirc;n tố n&ecirc;n đ&aacute; Tourmaline l&agrave; đ&aacute; m&agrave;u hỗn hợp hay c&oacute; c&aacute;i t&ecirc;n gọi kh&aacute;c l&agrave; &ldquo;<a style=\"box-sizing: border-box; background-color: transparent; touch-action: manipulation; color: #0a0a0a; text-decoration-line: none;\" title=\"Đ&aacute; qu&yacute;\" href=\"https://tramdathanhxuanhttps//kinggems.vn/\" target=\"_self\" data-ail=\"397\">đ&aacute; qu&yacute;</a>&nbsp;của cầu vồng&rdquo;.</p>\r\n<figure id=\"attachment_509\" class=\"wp-caption aligncenter\" style=\"box-sizing: border-box; margin: 0px auto 2em; clear: both; max-width: 100%; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px; width: 700px;\" aria-describedby=\"caption-attachment-509\"><img class=\"size-full wp-image-509\" style=\"box-sizing: border-box; border-style: none; max-width: 100%; height: auto; display: inline-block; vertical-align: middle; transition: opacity 1s ease 0s; opacity: 1;\" title=\"Đ&aacute; Tourmaline: Kh&aacute;i niệm, th&agrave;nh phần, đặc t&iacute;nh v&agrave; ứng dụng 1\" src=\"http://127.0.0.1:8000/storage/news/August2021/2021-08-11_8-42-06.jpg\" sizes=\"(max-width: 700px) 100vw, 700px\" srcset=\"https://kinggems.vn/wp-content/uploads/2018/12/tourmaline-gemstone.jpg 700w, https://kinggems.vn/wp-content/uploads/2018/12/tourmaline-gemstone-300x168.jpg 300w, https://kinggems.vn/wp-content/uploads/2018/12/tourmaline-gemstone-600x337.jpg 600w\" alt=\"Đ&aacute; Tourmaline c&oacute; dạng tinh thể rất độc đ&aacute;o\" width=\"700\" height=\"393\" />\r\n<figcaption id=\"caption-attachment-509\" class=\"wp-caption-text\" style=\"box-sizing: border-box; text-align: center; padding: 0.4em; font-size: 0.9em; background: rgba(0, 0, 0, 0.05); font-style: italic;\">Đ&aacute; Tourmaline c&oacute; dạng tinh thể rất độc đ&aacute;o</figcaption>\r\n</figure>\r\n<h3 style=\"box-sizing: border-box; color: #0a0a0a; width: 720px; margin-top: 0px; margin-bottom: 0.5em; text-rendering: optimizespeed; font-size: 1.25em; font-family: Mulish, sans-serif;\"><span id=\"Nguon_goc_thanh_tao_da_Tourmaline\" class=\"ez-toc-section\" style=\"box-sizing: border-box; -webkit-box-decoration-break: clone;\"></span><span style=\"box-sizing: border-box; font-weight: bolder;\">Nguồn gốc th&agrave;nh tạo đ&aacute; Tourmaline?</span></h3>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">Đ&aacute; Tourmaline được tạo th&agrave;nh từ mạch nhiệt dịch ở nhiệt độ cao v&agrave; được t&igrave;m thấy ở trong c&aacute;c Granit v&agrave; Granit Pegmatit.</p>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">Tr&ecirc;n thế giới th&igrave; loại đ&aacute; n&agrave;y tập trung nhiều ở c&aacute;c nước Ấn Độ, Braxin, Madagaxca, Kenya v&agrave; v&ugrave;ng Myanmar.</p>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">C&ograve;n ở Việt Nam th&igrave; loại đ&aacute; c&oacute; &yacute; nghĩa phong thủy may mắn n&agrave;y được t&igrave;m thấy nhiều ở Y&ecirc;n B&aacute;i, Thanh H&oacute;a, Nghệ An, Gia Lai.</p>\r\n<h3 style=\"box-sizing: border-box; color: #0a0a0a; width: 720px; margin-top: 0px; margin-bottom: 0.5em; text-rendering: optimizespeed; font-size: 1.25em; font-family: Mulish, sans-serif;\"><span id=\"Thanh_phan_hoa_hoc_da_Tourmaline\" class=\"ez-toc-section\" style=\"box-sizing: border-box; -webkit-box-decoration-break: clone;\"></span><span style=\"box-sizing: border-box; font-weight: bolder;\">Th&agrave;nh phần h&oacute;a học đ&aacute; Tourmaline</span></h3>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">C&ocirc;ng thức h&oacute;a học của đ&aacute; Tourmaline l&agrave; XY3Z6 (BO3)3Si6O18(O,OH,F)4 trong đ&oacute;:</p>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">X c&oacute; thể l&agrave; Na, Ca hoặc K, Mg;</p>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">C&ograve;n Y l&agrave; Fe+2, Fe+3; Mg; Al v&agrave; Li; Mn+2; V+3</p>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">V&agrave; Z l&agrave; Al hoặc Cr+3, Fe+3 (V+3, Fe+2, Ti)</p>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">Từ c&ocirc;ng thức đ&oacute; c&aacute;c bạn sẽ thấy được rằng th&agrave;nh phần h&oacute;a học của Tourmaline kh&ocirc;ng nhất định do hiện tượng thay thế đồng h&igrave;nh SiO2: 30-44%; B2O3: 8 &ndash; 12%; Al2O3: 18 &ndash; 44%; FeO+ Fe2O3: 0 &ndash; 38%; MgO: 0 &ndash; 25%; Na2O: 0 &ndash; 6%; CaO: 0-4%; H2O: 1-4% .</p>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">Ngo&agrave;i ra th&agrave;nh phần của Tourmaline c&ograve;n c&oacute; thể c&oacute; c&aacute;c nguy&ecirc;n tố sau: K, Li, Mn, Cr v&agrave; cả F, Cl.</p>\r\n<h2 style=\"box-sizing: border-box; color: #0a0a0a; width: 720px; margin-top: 0px; margin-bottom: 0.5em; text-rendering: optimizespeed; font-size: 1.6em; line-height: 1.3; font-family: Mulish, sans-serif;\"><span id=\"Dac_diem_nhan_biet_that_va_gia\" class=\"ez-toc-section\" style=\"box-sizing: border-box; -webkit-box-decoration-break: clone;\"></span><span style=\"box-sizing: border-box; font-weight: bolder;\">Đặc điểm nhận biết thật v&agrave; giả</span></h2>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">T&iacute;nh đến thời điểm hiện tại th&igrave; vẫn chưa c&oacute; Tourmaline tổng hợp ra với mục đ&iacute;ch thương mại h&oacute;a do loại đ&aacute; tự nhi&ecirc;n n&agrave;y c&oacute; m&agrave;u sắc tương đồng với m&agrave;u sắc của&nbsp;<a style=\"box-sizing: border-box; background-color: transparent; touch-action: manipulation; color: #0a0a0a; text-decoration-line: none;\" title=\"thạch anh\" target=\"_self\" data-ail=\"397\">thạch anh</a>&nbsp;(citrin, ametit,&nbsp;<a style=\"box-sizing: border-box; background-color: transparent; touch-action: manipulation; color: #0a0a0a; text-decoration-line: none;\" title=\"thạch anh\" target=\"_self\" data-ail=\"397\">thạch anh</a>&nbsp;&aacute;m kh&oacute;i), demantoit, emơr&ocirc;t,&nbsp;<a style=\"box-sizing: border-box; background-color: transparent; touch-action: manipulation; color: #0a0a0a; text-decoration-line: none;\" title=\"Ruby\" href=\"https://tramdathanhxuan/ruby/\" target=\"_self\" data-ail=\"397\">ruby</a>, peridot, topaz hồng, zircon, spinen tổng hợp v&agrave; thuỷ tinh m&ocirc; phỏng.</p>\r\n<figure id=\"attachment_505\" class=\"wp-caption aligncenter\" style=\"box-sizing: border-box; margin: 0px auto 2em; clear: both; max-width: 100%; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px; width: 700px;\" aria-describedby=\"caption-attachment-505\"><img class=\"size-full wp-image-505\" style=\"box-sizing: border-box; border-style: none; max-width: 100%; height: auto; display: inline-block; vertical-align: middle; transition: opacity 1s ease 0s; opacity: 1;\" title=\"Đ&aacute; Tourmaline: Kh&aacute;i niệm, th&agrave;nh phần, đặc t&iacute;nh v&agrave; ứng dụng 2\" src=\"http://127.0.0.1:8000/storage/news/August2021/2021-08-11_8-42-06.jpg\" sizes=\"(max-width: 700px) 100vw, 700px\" srcset=\"https://kinggems.vn/wp-content/uploads/2018/12/all-the-colors-of-tourmaline-gc.jpg 700w, https://kinggems.vn/wp-content/uploads/2018/12/all-the-colors-of-tourmaline-gc-300x171.jpg 300w, https://kinggems.vn/wp-content/uploads/2018/12/all-the-colors-of-tourmaline-gc-600x343.jpg 600w\" alt=\"Bảng m&agrave;u c&aacute;c loại đ&aacute; Tourmaline phổ biến hiện nay\" width=\"700\" height=\"400\" />\r\n<figcaption id=\"caption-attachment-505\" class=\"wp-caption-text\" style=\"box-sizing: border-box; text-align: center; padding: 0.4em; font-size: 0.9em; background: rgba(0, 0, 0, 0.05); font-style: italic;\">Bảng m&agrave;u c&aacute;c loại đ&aacute; Tourmaline phổ biến hiện nay</figcaption>\r\n</figure>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">Muốn ph&acirc;n biệt được phải dựa theo đặc điểm t&iacute;nh chất của ch&uacute;ng, đồng thời sử dụng c&aacute;c m&aacute;y thiết bị gi&aacute;m định, để r&otilde; hơn sau đ&acirc;y l&agrave; bảng t&iacute;nh chất đ&aacute; tự nhi&ecirc;n c&oacute; thể nhầm với đ&aacute; Tourmaline.</p>\r\n<h2 style=\"box-sizing: border-box; color: #0a0a0a; width: 720px; margin-top: 0px; margin-bottom: 0.5em; text-rendering: optimizespeed; font-size: 1.6em; line-height: 1.3; font-family: Mulish, sans-serif;\"><span id=\"Cac_da_tuong_tu_Tuamalin_va_cach_phan_biet\" class=\"ez-toc-section\" style=\"box-sizing: border-box; -webkit-box-decoration-break: clone;\"></span><span style=\"box-sizing: border-box; font-weight: bolder;\">C&aacute;c đ&aacute; tương tự Tuamalin v&agrave; c&aacute;ch ph&acirc;n biệt</span></h2>\r\n<table style=\"width: 1220px; margin-bottom: 1em; border-color: #ececec; border-spacing: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px; height: 947px;\">\r\n<tbody style=\"box-sizing: border-box;\">\r\n<tr style=\"box-sizing: border-box;\">\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0.5em 0.5em 0px; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 221.594px;\"><span style=\"box-sizing: border-box; font-weight: bolder;\">T&ecirc;n đ&aacute;</span></td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 110.766px;\"><span style=\"box-sizing: border-box; font-weight: bolder;\">Độ cứng</span></td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 119.078px;\"><span style=\"box-sizing: border-box; font-weight: bolder;\">Tỷ trọng</span></td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 160.641px;\"><span style=\"box-sizing: border-box; font-weight: bolder;\">Chiết suất</span></td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 138.516px;\"><span style=\"box-sizing: border-box; font-weight: bolder;\">Lưỡng chiết</span></td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0px 0.5em 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 467.406px;\"><span style=\"box-sizing: border-box; font-weight: bolder;\">Đặc điểm kh&aacute;c</span></td>\r\n</tr>\r\n<tr style=\"box-sizing: border-box;\">\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0.5em 0.5em 0px; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 221.594px;\">Citrin, Amethyst TA &aacute;m kh&oacute;i</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 110.766px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px; text-align: center;\">7</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 119.078px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">2,63-2,65</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 160.641px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">1,544-1,1553</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 138.516px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">0,009</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0px 0.5em 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 467.406px;\">Đa sắc yếu, loại xử l&yacute; kh&ocirc;ng c&oacute; t&iacute;nh đa sắc; độ t&aacute;n sắc 0,013; t&iacute;nh hệ 6 phương.</td>\r\n</tr>\r\n<tr style=\"box-sizing: border-box;\">\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0.5em 0.5em 0px; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 221.594px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">Dermantoit</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 110.766px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">6,5-7</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 119.078px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">3,85</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 160.641px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">1,89</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 138.516px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">0</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0px 0.5em 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 467.406px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">Độ t&aacute;n sắc: 0,057; Phổ HT: 701, 693, 640, 622, 485, 464, 443; t&iacute;nh hệ lập phương</p>\r\n</td>\r\n</tr>\r\n<tr style=\"box-sizing: border-box;\">\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0.5em 0.5em 0px; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 221.594px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">Emơr&ocirc;t</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 110.766px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">7,5-8</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 119.078px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">2,67-2,78</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 160.641px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">1,576-1,582</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 138.516px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">0,006</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0px 0.5em 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 467.406px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">Độ t&aacute;n sắc: 0,014, đa sắc r&otilde;: lục/lục lam &ndash; v&agrave;ng lục; phổ HT: 683,5; 680,6; 662; 646; 637; 630</p>\r\n</td>\r\n</tr>\r\n<tr style=\"box-sizing: border-box;\">\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0.5em 0.5em 0px; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 221.594px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">Peridot</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 110.766px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">6,5</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 119.078px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">3,34</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 160.641px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">1,654-1,690</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 138.516px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">0,037</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0px 0.5em 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 467.406px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">Phổ hấp thụ: 493, 473, 453 nm</p>\r\n</td>\r\n</tr>\r\n<tr style=\"box-sizing: border-box;\">\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0.5em 0.5em 0px; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 221.594px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">Cryzoberin</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 110.766px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">8,5</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 119.078px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">3,70-3,72</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 160.641px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">1,744-1,755</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 138.516px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">0,011</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0px 0.5em 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 467.406px;\">Đa sắc yếu: v&agrave;ng phớt đỏ/v&agrave;ng; lục nhạt/lục.\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">Phổ HT: 504, 495, 485, 445.</p>\r\n</td>\r\n</tr>\r\n<tr style=\"box-sizing: border-box;\">\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0.5em 0.5em 0px; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 221.594px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">Ruby</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 110.766px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">9</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 119.078px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">3,9-4,1</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 160.641px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">1,76-1,77</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 138.516px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">0,008</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0px 0.5em 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 467.406px;\">Đa sắc r&otilde;: Đỏ phớt t&iacute;m/ đỏ phớt cam; ph&aacute;t quang mạnh đến yếu</td>\r\n</tr>\r\n<tr style=\"box-sizing: border-box;\">\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0.5em 0.5em 0px; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 221.594px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">Topaz hồng</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 110.766px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">8</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 119.078px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">3,53-3,56</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 160.641px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">1,61-1,638</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 138.516px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">0,008-0,01</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0px 0.5em 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 467.406px;\">Đa sắc: kh&ocirc;ng m&agrave;u/ hồng đỏ; phổ 6828, huỳnh quang yếu m&agrave;u n&acirc;u, đỏ</td>\r\n</tr>\r\n<tr style=\"box-sizing: border-box;\">\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0.5em 0.5em 0px; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 221.594px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">Zircon m&agrave;u lục</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 110.766px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">6.5</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 119.078px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">4-4,469</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 160.641px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">1,82; 1,926-1,985</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 138.516px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">0,01; 0,059</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0px 0.5em 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 467.406px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">&Aacute;nh kim cương v&agrave; phổ đặc biệt</p>\r\n</td>\r\n</tr>\r\n<tr style=\"box-sizing: border-box;\">\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0.5em 0.5em 0px; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 221.594px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">Thuỷ tinh beryn</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 110.766px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">6,5</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 119.078px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">2,57</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 160.641px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">1.5</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 138.516px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">0</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0px 0.5em 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 467.406px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">Kh&ocirc;ng c&oacute; t&iacute;nh đa sắc, chứa c&aacute;c bao thể kh&iacute;</p>\r\n</td>\r\n</tr>\r\n<tr style=\"box-sizing: border-box;\">\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0.5em 0.5em 0px; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 221.594px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">Spinen nh&acirc;n tạo</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 110.766px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">8</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 119.078px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">3,63</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 160.641px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">1,727</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 138.516px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">0</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0px 0.5em 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 467.406px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">Kh&ocirc;ng c&oacute; t&iacute;nh đa sắc</p>\r\n</td>\r\n</tr>\r\n<tr style=\"box-sizing: border-box;\">\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0.5em 0.5em 0px; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 221.594px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">Thuỷ tinh ch&igrave;</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 110.766px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">5</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 119.078px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">2,63-3,85</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 160.641px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">1,57-1,64</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 138.516px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">&ndash;</p>\r\n</td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0px 0.5em 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666; width: 467.406px;\">&nbsp;\r\n<p style=\"box-sizing: border-box; margin: 0.5em 0px;\">&ndash;</p>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<h2 style=\"box-sizing: border-box; color: #0a0a0a; width: 720px; margin-top: 0px; margin-bottom: 0.5em; text-rendering: optimizespeed; font-size: 1.6em; line-height: 1.3; font-family: Mulish, sans-serif;\"><span id=\"Cong_dung_cua_Da_Tourmaline\" class=\"ez-toc-section\" style=\"box-sizing: border-box; -webkit-box-decoration-break: clone;\"></span><span style=\"box-sizing: border-box; font-weight: bolder;\">C&ocirc;ng dụng của Đ&aacute; Tourmaline</span></h2>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">Đặc trưng của loại đ&aacute; Tourmaline đ&oacute; l&agrave; c&oacute; thể tạo ra điện. Đồng thời Tourmaline c&ograve;n tạo ra được c&aacute;c ion &acirc;m v&agrave; ph&aacute;t ra c&aacute;c tia bức xạ điện từ ở v&ugrave;ng hồng ngo&agrave;i với bước s&oacute;ng từ 4 -14 micron.</p>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">Theo c&aacute;c chuy&ecirc;n gia khoa học đ&aacute;nh gi&aacute; th&igrave; tia hồng ngoại v&agrave; ion &acirc;m đều mang lại những t&aacute;c dụng tốt đối với sức khỏe, gi&uacute;p tăng cường v&agrave; bảo vệ sức khỏe trước những t&aacute;c nh&acirc;n g&acirc;y hại từ m&ocirc;i trường b&ecirc;n ngo&agrave;i.</p>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">Đặc biệt khi Tourmaline tiếp x&uacute;c với hơi nước trong kh&ocirc;ng kh&iacute; sẽ tạo ra được c&aacute;c ion &acirc;m v&agrave; c&oacute; t&aacute;c dụng l&agrave;m giảm đi c&aacute;c ion dương do s&oacute;ng điện từ tạo ra, từ đ&oacute; gi&uacute;p chống lại c&aacute;c t&igrave;nh trạng suy nhược hay mệt mỏi của cơ thể v&agrave; mang lại một cảm gi&aacute;c thoải m&aacute;i, dễ chịu nhất.</p>\r\n<figure id=\"attachment_507\" class=\"wp-caption aligncenter\" style=\"box-sizing: border-box; margin: 0px auto 2em; clear: both; max-width: 100%; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px; width: 700px;\" aria-describedby=\"caption-attachment-507\"><img class=\"size-full wp-image-507\" style=\"box-sizing: border-box; border-style: none; max-width: 100%; height: auto; display: inline-block; vertical-align: middle; transition: opacity 1s ease 0s; opacity: 1;\" title=\"Đ&aacute; Tourmaline: Kh&aacute;i niệm, th&agrave;nh phần, đặc t&iacute;nh v&agrave; ứng dụng 3\" src=\"http://127.0.0.1:8000/storage/news/August2021/2021-08-11_8-42-06.jpg\" sizes=\"(max-width: 700px) 100vw, 700px\" srcset=\"https://kinggems.vn/wp-content/uploads/2018/12/Tourmaline.jpg 700w, https://kinggems.vn/wp-content/uploads/2018/12/Tourmaline-300x150.jpg 300w, https://kinggems.vn/wp-content/uploads/2018/12/Tourmaline-600x300.jpg 600w\" alt=\"Đ&aacute; Tourmaline đ&atilde; v&agrave; đang được ứng dụng \" width=\"700\" height=\"350\" />\r\n<figcaption id=\"caption-attachment-507\" class=\"wp-caption-text\" style=\"box-sizing: border-box; text-align: center; padding: 0.4em; font-size: 0.9em; background: rgba(0, 0, 0, 0.05); font-style: italic;\">Đ&aacute; Tourmaline đ&atilde; v&agrave; đang được ứng dụng l&agrave;m rất nhiều loại trang sức kh&aacute;c nhau</figcaption>\r\n</figure>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">B&ecirc;n cạnh đ&oacute;, v&igrave; bản chất của tia hồng ngoại l&agrave; c&oacute; t&iacute;nh chất s&oacute;ng n&ecirc;n nhiệt từ tia n&agrave;y c&oacute; khả năng x&acirc;m nhập cao hơn đối với c&aacute;c dạng nhiệt kh&aacute;c, do đ&oacute; m&agrave; tia hồng ngo&agrave;i cho ph&eacute;p k&iacute;ch th&iacute;ch tuần ho&agrave;n tại chỗ một c&aacute;ch triệt để tr&ecirc;n diện rộng. V&agrave; nhờ đ&oacute; m&agrave; gi&uacute;p vận chuyển được c&aacute;c chất dinh dưỡng tốt hơn, thanh lọc v&agrave; thải độc tố ra khỏi cơ thể.</p>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">Ch&iacute;nh v&igrave; những đặc t&iacute;nh, c&ocirc;ng dụng hữu &iacute;ch n&agrave;y m&agrave; tia hồng ngoại c&oacute; khả năng điều trị th&agrave;nh c&ocirc;ng rất nhiều c&aacute;c chứng bệnh li&ecirc;n quan đến xương khớp, bệnh vi&ecirc;m nang l&ocirc;ng, eczema (ch&agrave;m), tổn thương m&ocirc; mềm, xơ vữa động mạch, tăng huyết &aacute;p, nhiễm tr&ugrave;ng h&ocirc; hấp tr&ecirc;n, vi&ecirc;m da thần kinh, c&aacute;c bệnh tai mũi họng, ung thư,..</p>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">C&oacute; thể bạn quan t&acirc;m:</p>\r\n<ul style=\"box-sizing: border-box; list-style-position: initial; list-style-image: initial; margin-top: 0px; padding: 0px; margin-bottom: 1.3em; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">\r\n<li style=\"box-sizing: border-box; margin-bottom: 0.6em; margin-left: 1.3em;\"><a style=\"box-sizing: border-box; background-color: transparent; touch-action: manipulation; color: #0a0a0a; text-decoration-line: none;\" href=\"https://tramdathanhxuan/da-spinel-khai-niem-thanh-phan-dac-tinh-va-ung-dung/\" target=\"_blank\" rel=\"noopener noreferrer\" data-mil=\"397\"><span style=\"box-sizing: border-box; font-weight: bolder;\">Đ&aacute; Spinel v&agrave; trang sức đ&aacute; Spinel</span></a></li>\r\n<li style=\"box-sizing: border-box; margin-bottom: 0.6em; margin-left: 1.3em;\"><a style=\"box-sizing: border-box; background-color: transparent; touch-action: manipulation; color: #0a0a0a; text-decoration-line: none;\" href=\"https://tramdathanhxuan/da-ruby-la-gi/\" target=\"_blank\" rel=\"noopener noreferrer\" data-mil=\"397\"><span style=\"box-sizing: border-box; font-weight: bolder;\">Đ&aacute; Ruby v&agrave; trang sức đ&aacute; Ruby</span></a></li>\r\n</ul>\r\n<h2 style=\"box-sizing: border-box; color: #0a0a0a; width: 720px; margin-top: 0px; margin-bottom: 0.5em; text-rendering: optimizespeed; font-size: 1.6em; line-height: 1.3; font-family: Mulish, sans-serif;\"><span id=\"Nhung_tac_dung_cu_the_cua_tung_mau_da_Tourmaline\" class=\"ez-toc-section\" style=\"box-sizing: border-box; -webkit-box-decoration-break: clone;\"></span><span style=\"box-sizing: border-box; font-weight: bolder;\">Những t&aacute;c dụng cụ thể của từng m&agrave;u đ&aacute; Tourmaline</span></h2>\r\n<h3 style=\"box-sizing: border-box; color: #0a0a0a; width: 720px; margin-top: 0px; margin-bottom: 0.5em; text-rendering: optimizespeed; font-size: 1.25em; font-family: Mulish, sans-serif;\"><span id=\"Da_Tourmaline_mau_den\" class=\"ez-toc-section\" style=\"box-sizing: border-box; -webkit-box-decoration-break: clone;\"></span>Đ&aacute; Tourmaline m&agrave;u đen</h3>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">Loại n&agrave;y gi&uacute;p k&iacute;ch th&iacute;ch cơ thể bạn tạo ra được nguồn năng lượng t&iacute;ch cực, d&ugrave; bạn đang gặp ho&agrave;n cảnh kh&oacute; khăn th&igrave; Tourmaline sẽ khiến bạn suy nghĩ t&iacute;ch cực, giải tỏa được phần n&agrave;o sầu muộn. Đồng thời Tourmaline đen mang lại nhiều sự may mắn, hạnh ph&uacute;c v&agrave; ngăn chặn những suy nghĩ ti&ecirc;u cực, những năng lượng xấu từ c&aacute;c thiết bị điện tử v&agrave; ph&oacute;ng xạ. Nhờ vậy m&agrave; gi&uacute;p tăng sinh kh&iacute;, bảo vệ v&agrave; ngăn ngừa c&aacute;c bệnh về lưng v&agrave; thận.</p>\r\n<figure id=\"attachment_508\" class=\"wp-caption aligncenter\" style=\"box-sizing: border-box; margin: 0px auto 2em; clear: both; max-width: 100%; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px; width: 700px;\" aria-describedby=\"caption-attachment-508\"><img class=\"size-full wp-image-508\" style=\"box-sizing: border-box; border-style: none; max-width: 100%; height: auto; display: inline-block; vertical-align: middle; transition: opacity 1s ease 0s; opacity: 1;\" title=\"Đ&aacute; Tourmaline: Kh&aacute;i niệm, th&agrave;nh phần, đặc t&iacute;nh v&agrave; ứng dụng 4\" src=\"http://127.0.0.1:8000/storage/news/August2021/2021-08-11_8-42-06.jpg\" sizes=\"(max-width: 700px) 100vw, 700px\" srcset=\"https://kinggems.vn/wp-content/uploads/2018/12/tourmaline-den.jpg 700w, https://kinggems.vn/wp-content/uploads/2018/12/tourmaline-den-300x300.jpg 300w, https://kinggems.vn/wp-content/uploads/2018/12/tourmaline-den-100x100.jpg 100w, https://kinggems.vn/wp-content/uploads/2018/12/tourmaline-den-600x600.jpg 600w, https://kinggems.vn/wp-content/uploads/2018/12/tourmaline-den-150x150.jpg 150w\" alt=\"Đ&aacute; Tourmaline m&agrave;u đen\" width=\"700\" height=\"700\" />\r\n<figcaption id=\"caption-attachment-508\" class=\"wp-caption-text\" style=\"box-sizing: border-box; text-align: center; padding: 0.4em; font-size: 0.9em; background: rgba(0, 0, 0, 0.05); font-style: italic;\">Đ&aacute; Tourmaline m&agrave;u đen huyền b&iacute; ẩn chứa sức mạnh quyền năng</figcaption>\r\n</figure>\r\n<h3 style=\"box-sizing: border-box; color: #0a0a0a; width: 720px; margin-top: 0px; margin-bottom: 0.5em; text-rendering: optimizespeed; font-size: 1.25em; font-family: Mulish, sans-serif;\"><span id=\"Da_Tourmaline_mau_luc\" class=\"ez-toc-section\" style=\"box-sizing: border-box; -webkit-box-decoration-break: clone;\"></span>Đ&aacute; Tourmaline m&agrave;u lục</h3>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">Đ&aacute; n&agrave;y c&oacute; li&ecirc;n hệ với chakra t&iacute;m, nhờ đ&oacute; m&agrave; gi&uacute;p mở l&ograve;ng v&agrave; đem lại t&igrave;nh y&ecirc;u với một l&ograve;ng trắc ẩn. Đ&acirc;y l&agrave; một tinh thể giải ph&oacute;ng do đ&oacute; gi&uacute;p người sở hữu giải tho&aacute;t được những cảm x&uacute;c ti&ecirc;u cực, tho&aacute;t khỏi những &aacute;m ảnh của qu&aacute; khứ, l&agrave;m c&acirc;n bằng cảm x&uacute;c nhanh ch&oacute;ng. Ngo&agrave;i ra t&aacute;c dụng của loại đ&aacute; n&agrave;y c&ograve;n gi&uacute;p loại bỏ đi c&aacute;c chất độc trong cơ thể, gi&uacute;p giảm trừ stress v&agrave; sợ h&atilde;i, đem lại giấc ngủ ngon v&agrave; s&acirc;u, tạo cảm gi&aacute;c b&igrave;nh an hơn. Đặc biệt, loại đ&aacute; n&agrave;y c&oacute; thể được d&ugrave;ng để chữa c&aacute;c bệnh về tim, hệ miễn dịch, tuyến ức v&agrave; hỗ trợ tăng c&acirc;n cho những người c&oacute; cơ thể yếu đuối, suy nhược v&agrave; gầy g&ograve;.</p>\r\n<figure id=\"attachment_512\" class=\"wp-caption aligncenter\" style=\"box-sizing: border-box; margin: 0px auto 2em; clear: both; max-width: 100%; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px; width: 700px;\" aria-describedby=\"caption-attachment-512\"><img class=\"size-full wp-image-512\" style=\"box-sizing: border-box; border-style: none; max-width: 100%; height: auto; display: inline-block; vertical-align: middle; transition: opacity 1s ease 0s; opacity: 1;\" title=\"Đ&aacute; Tourmaline: Kh&aacute;i niệm, th&agrave;nh phần, đặc t&iacute;nh v&agrave; ứng dụng 5\" src=\"http://127.0.0.1:8000/storage/news/August2021/pexels-dids-2942855.jpg\" sizes=\"(max-width: 700px) 100vw, 700px\" srcset=\"https://kinggems.vn/wp-content/uploads/2018/12/da-tourmaline-mau-xanh-la-cay.jpg 700w, https://kinggems.vn/wp-content/uploads/2018/12/da-tourmaline-mau-xanh-la-cay-300x300.jpg 300w, https://kinggems.vn/wp-content/uploads/2018/12/da-tourmaline-mau-xanh-la-cay-100x100.jpg 100w, https://kinggems.vn/wp-content/uploads/2018/12/da-tourmaline-mau-xanh-la-cay-600x600.jpg 600w, https://kinggems.vn/wp-content/uploads/2018/12/da-tourmaline-mau-xanh-la-cay-150x150.jpg 150w\" alt=\"Nhẫn v&agrave;ng đ&iacute;nh đ&aacute; Tourmaline m&agrave;u lục\" width=\"700\" height=\"700\" />\r\n<figcaption id=\"caption-attachment-512\" class=\"wp-caption-text\" style=\"box-sizing: border-box; text-align: center; padding: 0.4em; font-size: 0.9em; background: rgba(0, 0, 0, 0.05); font-style: italic;\">Nhẫn v&agrave;ng đ&iacute;nh đ&aacute; Tourmaline m&agrave;u lục</figcaption>\r\n</figure>\r\n<h3 style=\"box-sizing: border-box; color: #0a0a0a; width: 720px; margin-top: 0px; margin-bottom: 0.5em; text-rendering: optimizespeed; font-size: 1.25em; font-family: Mulish, sans-serif;\"><span id=\"Da_Tourmaline_mau_hong\" class=\"ez-toc-section\" style=\"box-sizing: border-box; -webkit-box-decoration-break: clone;\"></span>Đ&aacute; Tourmaline m&agrave;u hồng:</h3>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">C&ocirc;ng dụng gi&uacute;p thư gi&atilde;n tối đa, mang lại cảm gi&aacute;c an to&agrave;n v&agrave; b&igrave;nh y&ecirc;n v&ocirc; c&ugrave;ng. Loại đ&aacute; n&agrave;y l&agrave; sự lựa chọn ph&ugrave; hợp nhất đối với những người c&oacute; tuổi thơ bị ngược đ&atilde;i hoặc những người bị đối xử tệ bạc. B&ecirc;n cạnh đ&oacute;, c&ograve;n l&agrave;m dịu đi những nỗi đau đ&atilde; ch&ocirc;n giấu trong l&ograve;ng từ l&acirc;u, l&agrave;m vơi đi sự tổn thương, mất m&aacute;t v&agrave; c&ograve;n được d&ugrave;ng để hỗ trợ c&aacute;c bệnh về tim, da v&agrave; phổi.</p>\r\n<h3 style=\"box-sizing: border-box; color: #0a0a0a; width: 720px; margin-top: 0px; margin-bottom: 0.5em; text-rendering: optimizespeed; font-size: 1.25em; font-family: Mulish, sans-serif;\"><span id=\"Da_Tourmaline_vang\" class=\"ez-toc-section\" style=\"box-sizing: border-box; -webkit-box-decoration-break: clone;\"></span>Đ&aacute; Tourmaline v&agrave;ng:</h3>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">Gi&uacute;p k&iacute;ch th&iacute;ch sự ph&aacute;t triển về &oacute;c s&aacute;ng tao, tr&iacute; th&ocirc;ng minh v&agrave; tăng sự tự tin v&agrave; can đảm. Ngo&agrave;i ra loại đ&aacute; n&agrave;y c&ograve;n mang &yacute; nghĩa biểu trưng cho sự quyền lực, gi&agrave;u sang n&ecirc;n rất được giới doanh nh&acirc;n gi&agrave;u c&oacute; lựa chọn.</p>\r\n<figure id=\"attachment_513\" class=\"wp-caption aligncenter\" style=\"box-sizing: border-box; margin: 0px auto 2em; clear: both; max-width: 100%; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px; width: 700px;\" aria-describedby=\"caption-attachment-513\"><img class=\"size-full wp-image-513\" style=\"box-sizing: border-box; border-style: none; max-width: 100%; height: auto; display: inline-block; vertical-align: middle; transition: opacity 1s ease 0s; opacity: 1;\" title=\"Đ&aacute; Tourmaline: Kh&aacute;i niệm, th&agrave;nh phần, đặc t&iacute;nh v&agrave; ứng dụng 6\" src=\"http://127.0.0.1:8000/storage/news/August2021/2021-08-11_8-42-06.jpg\" sizes=\"(max-width: 700px) 100vw, 700px\" srcset=\"https://kinggems.vn/wp-content/uploads/2018/12/tourmaline-top-image-new.jpg 700w, https://kinggems.vn/wp-content/uploads/2018/12/tourmaline-top-image-new-300x150.jpg 300w, https://kinggems.vn/wp-content/uploads/2018/12/tourmaline-top-image-new-600x300.jpg 600w\" alt=\"Tourmaline m&agrave;u v&agrave;ng v&agrave; m&agrave;u hồng\" width=\"700\" height=\"350\" />\r\n<figcaption id=\"caption-attachment-513\" class=\"wp-caption-text\" style=\"box-sizing: border-box; text-align: center; padding: 0.4em; font-size: 0.9em; background: rgba(0, 0, 0, 0.05); font-style: italic;\">Tourmaline m&agrave;u v&agrave;ng v&agrave; m&agrave;u hồng</figcaption>\r\n</figure>\r\n<h3 style=\"box-sizing: border-box; color: #0a0a0a; width: 720px; margin-top: 0px; margin-bottom: 0.5em; text-rendering: optimizespeed; font-size: 1.25em; font-family: Mulish, sans-serif;\"><span id=\"Da_Tourmaline_mau_lam\" class=\"ez-toc-section\" style=\"box-sizing: border-box; -webkit-box-decoration-break: clone;\"></span>Đ&aacute; Tourmaline m&agrave;u lam:</h3>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">C&ocirc;ng dụng l&agrave; l&agrave;m hoạt h&oacute;a chakra họng v&agrave; tr&aacute;n, nhờ đ&oacute; m&agrave; gi&uacute;p điều trị tốt c&aacute;c bệnh về cổ họng, mắt v&agrave; phổi. B&ecirc;n cạnh đ&oacute;, loại đ&aacute; n&agrave;y c&ograve;n mang đến nhiều &yacute; nghĩa tốt trong việc k&yacute; hết hợp đồng thuận lợi, mang đến nhiều niềm vui v&agrave; thư th&aacute;i cho t&acirc;m hồn. Hơn nữa loại đ&aacute; n&agrave;y c&ograve;n được d&ugrave;ng để chữa c&aacute;c vết phỏng v&agrave; giải tỏa sự đau buồn, u uất trong người.</p>\r\n<figure id=\"attachment_511\" class=\"wp-caption aligncenter\" style=\"box-sizing: border-box; margin: 0px auto 2em; clear: both; max-width: 100%; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px; width: 700px;\" aria-describedby=\"caption-attachment-511\"><img class=\"size-full wp-image-511\" style=\"box-sizing: border-box; border-style: none; max-width: 100%; height: auto; display: inline-block; vertical-align: middle; transition: opacity 1s ease 0s; opacity: 1;\" title=\"Đ&aacute; Tourmaline: Kh&aacute;i niệm, th&agrave;nh phần, đặc t&iacute;nh v&agrave; ứng dụng 7\" src=\"http://127.0.0.1:8000/storage/news/August2021/2021-08-11_8-42-06.jpg\" sizes=\"(max-width: 700px) 100vw, 700px\" srcset=\"https://kinggems.vn/wp-content/uploads/2018/12/da-tourmaline-mau-lam.jpg 700w, https://kinggems.vn/wp-content/uploads/2018/12/da-tourmaline-mau-lam-300x300.jpg 300w, https://kinggems.vn/wp-content/uploads/2018/12/da-tourmaline-mau-lam-100x100.jpg 100w, https://kinggems.vn/wp-content/uploads/2018/12/da-tourmaline-mau-lam-600x600.jpg 600w, https://kinggems.vn/wp-content/uploads/2018/12/da-tourmaline-mau-lam-150x150.jpg 150w\" alt=\"Nhẫn đ&aacute; Tourmaline m&agrave;u l&agrave;m ngọc b&iacute;ch\" width=\"700\" height=\"700\" />\r\n<figcaption id=\"caption-attachment-511\" class=\"wp-caption-text\" style=\"box-sizing: border-box; text-align: center; padding: 0.4em; font-size: 0.9em; background: rgba(0, 0, 0, 0.05); font-style: italic;\">Nhẫn đ&aacute; Tourmaline m&agrave;u l&agrave;m ngọc b&iacute;ch</figcaption>\r\n</figure>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #0a0a0a; font-family: Mulish, sans-serif; font-size: 14.88px;\">Với vẻ đẹp quyến rũ v&agrave; sự đa dạng về c&aacute;c m&agrave;u sắc m&agrave; đ&aacute; Tourmaline đ&atilde; được chế t&aacute;c th&agrave;nh nhiều loại trang sức lấp l&aacute;nh với &yacute; nghĩa phong thủy may mắn như v&ograve;ng tay, mặt d&acirc;y chuyền, nhẫn đ&aacute;,..</p>', NULL, NULL, 'da-tourmaline-la-gi-nguon-goc-thanh-tao-thanh-phan-hoa-hoc', NULL, '2021-08-18 01:58:00', '2021-08-18 02:14:23', 'news\\August2021\\IXmJjRgyB8eiO4vHozo0.jpg', 1);
+INSERT INTO `news` (`id`, `title`, `content`, `seo_title`, `seo_content`, `slug`, `deleted_at`, `created_at`, `updated_at`, `image`, `stone_id`) VALUES
+(2, 'Thạch anh tóc xanh', '<h2 style=\"box-sizing: border-box; font-family: Tahoma, sans-serif; line-height: 1.1; color: #5c5c5c; margin: 10px 0px; font-weight: 300; letter-spacing: 0.5px;\"><strong style=\"box-sizing: border-box;\">Đ&ocirc;i n&eacute;t cơ bản về đ&aacute; Thạch anh t&oacute;c xanh&nbsp;</strong></h2>\r\n<p style=\"box-sizing: border-box; margin: 0px 0px 10px; color: #5c5c5c; font-family: Tahoma, sans-serif; letter-spacing: 0.5px;\">M&agrave;u xanh ch&iacute;nh l&agrave; m&agrave;u cơ bản của thi&ecirc;n nhi&ecirc;n l&agrave; biểu tượng cho sự sinh s&ocirc;i ph&aacute;t triển. V&agrave; trong phong thủy th&igrave; m&agrave;u xanh biểu trưng cho năng lượng Mộc, sự thịnh vượng. M&agrave;u xanh c&ograve;n gi&uacute;p ch&uacute;ng ta kiềm chế sự căng thẳng thần kinh v&agrave; tạo c&acirc;n bằng cho cơ thể.</p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0px 10px; color: #5c5c5c; font-family: Tahoma, sans-serif; letter-spacing: 0.5px;\"><strong style=\"box-sizing: border-box;\">Thạch anh t&oacute;c xanh</strong>&nbsp;l&agrave; một&nbsp;loại biến thể<a style=\"box-sizing: border-box; background-color: transparent; color: #5f91ec; text-decoration-line: none; transition: all 0.5s ease 0s; max-width: 100%;\" href=\"https://tramdathanhxuan.com/blog/tac-dung-cua-cac-loai-da-thach-anh-trong-doi-song-F8rDpcLw.html\">&nbsp;đ&aacute; thạch anh trong tự nhi&ecirc;n</a>&nbsp;mang năng lượng dương t&iacute;ch cực. C&aacute;c chuy&ecirc;n gia trong ng&agrave;nh kho&aacute;ng vật đ&atilde; nghi&ecirc;n cứu những th&agrave;nh phần biến thể trong thạch anh. V&agrave; t&aacute;ch những tinh thể trong suốt ri&ecirc;ng một nh&oacute;m như thạch anh t&iacute;m, thạch anh trắng...</p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0px 10px; color: #5c5c5c; font-family: Tahoma, sans-serif; letter-spacing: 0.5px;\">Những chất c&ograve;n lại c&oacute; dạng kim hoặc t&oacute;c&nbsp;được gọi l&agrave; thạch anh t&oacute;c. Mỗi sợi t&oacute;c hoặc kim que ở trong thạch anh c&oacute; nhiều m&agrave;u sắc kh&aacute;c nhau. H&igrave;nh th&agrave;nh n&ecirc;n c&aacute;c loại m&agrave;u sắc kh&aacute;c nhau. V&Agrave; T&oacute;c xanh với những c&ocirc;ng dụng đặc biệt ng&agrave;y c&agrave;ng được những người chơi đ&aacute; ưa chuộng.</p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0px 10px; color: #5c5c5c; font-family: Tahoma, sans-serif; letter-spacing: 0.5px;\">Ngo&agrave;i những t&aacute;c dụng về mặt sức khỏe, thạch anh t&oacute;c xanh c&ograve;n l&agrave; loại đ&aacute; đem đến những may mắn cho chủ nh&acirc;n trong con đường c&ocirc;ng danh sự nghiệp. Tăng vượng kh&iacute; t&agrave;i lộc trong bu&ocirc;n b&aacute;n kinh doanh...</p>\r\n<h2 style=\"box-sizing: border-box; font-family: Tahoma, sans-serif; line-height: 1.1; color: #5c5c5c; margin: 10px 0px; font-weight: 300; letter-spacing: 0.5px;\"><strong style=\"box-sizing: border-box;\">T&aacute;c dụng thạch anh t&oacute;c xanh trong phong thủy</strong></h2>\r\n<p style=\"box-sizing: border-box; margin: 0px 0px 10px; color: #5c5c5c; font-family: Tahoma, sans-serif; letter-spacing: 0.5px;\">Đắc T&agrave;i - Đắc Lộc&nbsp;với nguồn gốc cổ xưa về t&aacute;c dụng của đ&aacute; t&oacute;c xanh. Bao đời c&aacute;c bậcThầy Phong Thuỷ đ&atilde; sử dụng n&oacute; để hỗ trợ trong việc tăng vận may th&uacute;c. V&igrave; c&aacute;i t&iacute;nh dương biểu hiện qua m&agrave;u xanh l&aacute; đầy sức sống. Gi&uacute;p thu h&uacute;t được t&agrave;i lộc, tạo th&ecirc;m may mắn hơn trong sự nghiệp.</p>\r\n<div style=\"box-sizing: border-box; color: #5c5c5c; font-family: Tahoma, sans-serif; letter-spacing: 0.5px; text-align: center;\">\r\n<figure class=\"caption\" style=\"box-sizing: border-box; display: inline-block; margin: 0px 0px 10px;\"><img class=\"img-responsive lazy\" style=\"box-sizing: border-box; border: 0px; vertical-align: middle; max-width: 100%; height: auto; display: block; margin: 10px auto;\" src=\"https://phongthuyngocan.com/img/products/NGbzDRQv/description/tac-dung-Thach-anh-toc-xanh-mang-lai-may-man.jpg\" alt=\"v&ograve;ng đ&aacute; k&iacute;ch thước hạt 14mm\" data-original=\"https://phongthuyngocan.com/img/products/NGbzDRQv/description/tac-dung-Thach-anh-toc-xanh-mang-lai-may-man.jpg\" />\r\n<figcaption style=\"box-sizing: border-box;\"><em style=\"box-sizing: border-box;\">(L&agrave; Người Đi L&agrave;m hoặc D&acirc;n Kinh Doanh &ndash; V&ograve;ng Đ&aacute; Thạch Anh T&oacute;c Xanh Gi&uacute;p Bạn Mạnh Mẽ, May Mắn, Sớm Tạo Sự Đột Ph&aacute;.)</em></figcaption>\r\n</figure>\r\n</div>\r\n<p style=\"box-sizing: border-box; margin: 0px 0px 10px; color: #5c5c5c; font-family: Tahoma, sans-serif; letter-spacing: 0.5px;\">C&aacute;c bạn l&agrave; người kinh doanh, muốn thăng tiến trong con đường c&ocirc;ng danh nhưng hay bị thấp thỏm lo &acirc;u, thiếu tự tin, ảnh hưởng đến doanh số v&agrave; chức vụ. Với năng lượng mạnh hơn bất kỳ loại đ&aacute; thạch anh n&agrave;o.&nbsp;<a style=\"box-sizing: border-box; background-color: transparent; color: #5f91ec; text-decoration-line: none; transition: all 0.5s ease 0s; max-width: 100%;\" href=\"https://tramdathanhxuan.com/vong-tay-da-thach-anh-toc-xanh-JoxTOKpe.html\">V&ograve;ng Đ&aacute; Thạch Anh T&oacute;c Xanh</a>&nbsp;sẽ tạo ra một từ trường lục quang mạnh mẽ.&nbsp;<strong style=\"box-sizing: border-box;\">Đem lại nhiều vận may</strong>, gi&uacute;p bạn thăng chức v&agrave; k&yacute; nhiều hợp đồng chất lượng.</p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0px 10px; color: #5c5c5c; font-family: Tahoma, sans-serif; letter-spacing: 0.5px;\">V&agrave; năng lượng h&agrave;i h&ograve;a của đ&aacute; t&oacute;c xanh gi&uacute;p cho t&acirc;m tr&iacute; bạn dễ d&agrave;ng được khơi th&ocirc;ng, suy nghĩ t&iacute;ch cực, vui vẻ v&agrave; lạc quan hơn. B&ecirc;n cạnh đ&oacute;, thạch anh xanh gi&uacute;p cải thiện&nbsp;mối quan hệ&nbsp;x&atilde; hội trở n&ecirc;n tốt đẹp, bền chặt.</p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0px 10px; color: #5c5c5c; font-family: Tahoma, sans-serif; letter-spacing: 0.5px;\">Hoặc bạn l&agrave; người nh&aacute;t gan, yếu đuối, thiếu dũng kh&iacute; th&igrave; h&atilde;y đeo&nbsp;<a style=\"box-sizing: border-box; background-color: transparent; color: #5f91ec; text-decoration-line: none; transition: all 0.5s ease 0s; max-width: 100%;\" href=\"https://tramdathanhxuan.com/blog/thach-anh-toc-xanh-dac-tai-dac-loc-dac-binh-an-NGbzDRQv.html\">thạch anh t&oacute;c xanh</a>&nbsp;gi&uacute;p tăng trường kh&iacute; to&agrave;n th&acirc;n, c&oacute; dũng kh&iacute; v&agrave; tăng th&ecirc;m niềm tin.&nbsp;</p>\r\n<div style=\"box-sizing: border-box; color: #5c5c5c; font-family: Tahoma, sans-serif; letter-spacing: 0.5px; text-align: center;\">\r\n<figure class=\"caption\" style=\"box-sizing: border-box; display: inline-block; margin: 0px 0px 10px;\"><img class=\"img-responsive lazy\" style=\"box-sizing: border-box; border: 0px; vertical-align: middle; max-width: 100%; height: auto; display: block; margin: 10px auto;\" src=\"https://phongthuyngocan.com/img/products/NGbzDRQv/description/vong-tay-thach-anh-toc-xanh.jpg\" alt=\"t&aacute;c dụng thạch anh t&oacute;c xanh trong phong thủy\" data-original=\"https://phongthuyngocan.com/img/products/NGbzDRQv/description/vong-tay-thach-anh-toc-xanh.jpg\" />\r\n<figcaption style=\"box-sizing: border-box;\"><em style=\"box-sizing: border-box;\">(V&ograve;ng tay thạch anh t&oacute;c xanh k&iacute;ch cỡ hạt 14ly)</em></figcaption>\r\n</figure>\r\n</div>\r\n<h2 style=\"box-sizing: border-box; font-family: Tahoma, sans-serif; line-height: 1.1; color: #5c5c5c; margin: 10px 0px; font-weight: 300; letter-spacing: 0.5px;\">T&aacute;c dụng thạch anh t&oacute;c xanh với sức khỏe</h2>\r\n<p style=\"box-sizing: border-box; margin: 0px 0px 10px; color: #5c5c5c; font-family: Tahoma, sans-serif; letter-spacing: 0.5px;\">Thạch anh t&oacute;c xanh&nbsp;gi&uacute;p c&acirc;n bằng thể chất v&agrave; tinh thần bạn.</p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0px 10px; color: #5c5c5c; font-family: Tahoma, sans-serif; letter-spacing: 0.5px;\">Với năng lượng dương t&iacute;ch cực, t&oacute;c xanh c&oacute; khả năng hấp thụ c&aacute;c tia cực t&iacute;m ngăn ngừa sự l&atilde;o h&oacute;a điều&nbsp;trị c&aacute;c bệnh về da. Ngăn rụng t&oacute;c, tốt cho tim mạch. Gi&uacute;p tuần ho&agrave;n m&aacute;u, tuyến nội tiết v&agrave; tuyến thượng thận.</p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0px 10px; color: #5c5c5c; font-family: Tahoma, sans-serif; letter-spacing: 0.5px;\">Đối với c&aacute;c bạn học bộ m&ocirc;n thiền thạch anh t&oacute;c xanh gi&uacute;p gia tăng năng lượng thiền định. Gi&uacute;p t&acirc;m tr&iacute; dễ d&agrave;ng lắng dịu hơn, lọc bớt c&aacute;c suy nghĩ kh&ocirc;ng cần thiết.</p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0px 10px; color: #5c5c5c; font-family: Tahoma, sans-serif; letter-spacing: 0.5px;\"><strong style=\"box-sizing: border-box;\">Đặc biệt&nbsp;</strong>nhất trong thạch anh t&oacute;c xanh c&oacute; chứa chất Actinolit. C&oacute; t&aacute;c dụng cải thiện đ&aacute;ng kể t&igrave;nh h&igrave;nh cho c&aacute;c&nbsp;<strong style=\"box-sizing: border-box;\">bạn trai</strong>&nbsp;c&oacute; chức năng đ&agrave;n &ocirc;ng k&eacute;m.</p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0px 10px; color: #5c5c5c; font-family: Tahoma, sans-serif; letter-spacing: 0.5px;\"><em style=\"box-sizing: border-box;\"><strong style=\"box-sizing: border-box;\">Lưu &yacute;</strong>: Thạch anh t&oacute;c xanh ph&ugrave; hợp với người c&oacute;&nbsp;mệnh CUNG MỆNH PHI thuộc&nbsp;<strong style=\"box-sizing: border-box;\">Mệnh Hỏa</strong>&nbsp;v&agrave;&nbsp;<strong style=\"box-sizing: border-box;\">Mệnh Mộc&nbsp;</strong>(Khắc chế với người mệnh thổ). Nếu bạn thuộc hai mệnh n&agrave;y khi đeo thạch anh t&oacute;c xanh sẽ ph&aacute;t huy được hết c&ocirc;ng năng gi&aacute; trị của đ&aacute;.</em></p>', NULL, NULL, 'thach-anh-toc-xanh', NULL, '2021-08-18 02:23:24', '2021-08-18 02:23:24', 'news\\August2021\\lT8mNbo6Zi7nsTd1qlZu.jpg', 1),
+(3, 'Đá Aquamarine', '<h3 style=\"box-sizing: border-box; color: #555555; width: 840px; margin-top: 0px; margin-bottom: 0.5em; text-rendering: optimizespeed; font-size: 1.25em; font-family: \'Helvetica,Arial,sans-serif\', sans-serif;\"><span id=\"Thong_tin_chung_ve_da_aquamarine\" style=\"box-sizing: border-box; -webkit-box-decoration-break: clone;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 22px;\"><span style=\"box-sizing: border-box; font-weight: bolder;\">Th&ocirc;ng tin chung về đ&aacute; aquamarine</span></span></span></h3>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #777777; font-family: \'Helvetica,Arial,sans-serif\', sans-serif; font-size: medium; text-align: justify;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 17.6px;\">T&ecirc;n gọi Aquamarine theo tiếng latin được gh&eacute;p từ hai từ đơn l&agrave;:&nbsp;<em style=\"box-sizing: border-box;\"><span style=\"box-sizing: border-box; font-weight: bolder;\">aqua&nbsp;</span></em>nghĩa l&agrave; &ldquo;nước&rdquo; v&agrave;&nbsp;<em style=\"box-sizing: border-box;\"><span style=\"box-sizing: border-box; font-weight: bolder;\">marina&nbsp;</span></em>nghĩa l&agrave; &ldquo;biển&rdquo;. M&agrave;u sắc đặc trưng của Aquamarine l&agrave; m&agrave;u xanh lục, m&agrave;u xanh dương hoặc xanh dương phớt xanh l&aacute;.</span></p>\r\n<p class=\"Normal\" style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #777777; font-family: \'Helvetica,Arial,sans-serif\', sans-serif; font-size: medium; text-align: justify;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 17.6px;\">Mỏ Aquamarine được t&igrave;m thấy ở c&aacute;c nước như Bzaxin, Li&ecirc;n X&ocirc;, Ph&aacute;p, Namibia. Ở Việt Nam hiện nay chưa ph&aacute;t hiện trữ lượng lớn mỏ đ&aacute; Aquamarine.</span></p>\r\n<figure id=\"attachment_4510\" class=\"wp-caption aligncenter\" style=\"box-sizing: border-box; margin: 0px auto 2em; clear: both; max-width: 100%; color: #777777; font-family: \'Helvetica,Arial,sans-serif\', sans-serif; font-size: medium; width: 500px;\" aria-describedby=\"caption-attachment-4510\"><img class=\"wp-image-4510 size-full litespeed-loaded\" style=\"box-sizing: border-box; border-style: none; max-width: 100%; height: auto; display: inline-block; vertical-align: middle; transition: opacity 1s ease 0s; opacity: 1; width: auto !important;\" src=\"https://vongda5a.com/wp-content/uploads/2018/07/%C4%90%C3%A1-aquamarine-d%E1%BA%A1ng-trong.jpg\" alt=\"Đ&aacute; Aquamarine dạng trong\" width=\"500\" height=\"305\" data-lazyloaded=\"1\" data-src=\"https://vongda5a.com/wp-content/uploads/2018/07/%C4%90%C3%A1-aquamarine-d%E1%BA%A1ng-trong.jpg\" data-was-processed=\"true\" />\r\n<figcaption id=\"caption-attachment-4510\" class=\"wp-caption-text\" style=\"box-sizing: border-box; text-align: center; padding: 0.4em; font-size: 0.9em; background: rgba(0, 0, 0, 0.05); font-style: italic;\">Aquamarine được t&igrave;m thấy ở nhiều nước</figcaption>\r\n</figure>\r\n<p class=\"Normal\" style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #777777; font-family: \'Helvetica,Arial,sans-serif\', sans-serif; font-size: medium; text-align: justify;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 17.6px;\">Aquamarine c&oacute; độ tinh khiết cao c&oacute; thể được cắt m&agrave;i đa gi&aacute;c l&agrave;m mặt trang sức h&igrave;nh oval, tr&ograve;n, tr&aacute;i tim. Aquamarine b&aacute;n trong được m&agrave;i th&agrave;nh mặt Giọt nước, Oval để đeo cổ hay l&agrave;m c&aacute;c v&ograve;ng chuỗi đeo tay.</span></p>\r\n<table style=\"width: 840px; margin-bottom: 1em; border-color: #ececec; border-spacing: 0px; color: #777777; font-family: \'Helvetica,Arial,sans-serif\', sans-serif; font-size: medium;\">\r\n<tbody style=\"box-sizing: border-box;\">\r\n<tr style=\"box-sizing: border-box;\">\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0.5em 0.5em 0px; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 15.84px;\"><span style=\"box-sizing: border-box; font-weight: bolder;\">T&ecirc;n khoa học</span></span></td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0px 0.5em 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 15.84px;\">Aquamarin/ Aquamarine</span></td>\r\n</tr>\r\n<tr style=\"box-sizing: border-box;\">\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0.5em 0.5em 0px; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 15.84px;\"><span style=\"box-sizing: border-box; font-weight: bolder;\">T&ecirc;n Tiếng Việt</span></span></td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0px 0.5em 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 15.84px;\">Ngọc Xanh Biển</span></td>\r\n</tr>\r\n<tr style=\"box-sizing: border-box;\">\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0.5em 0.5em 0px; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 15.84px;\"><span style=\"box-sizing: border-box; font-weight: bolder;\">C&ocirc;ng thức&nbsp;h&oacute;a học</span></span></td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0px 0.5em 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 15.84px;\">Be<sub style=\"box-sizing: border-box;\">3</sub>Al<sub style=\"box-sizing: border-box;\">2</sub>Si<sub style=\"box-sizing: border-box;\">6</sub>O<sub style=\"box-sizing: border-box;\">18</sub></span></td>\r\n</tr>\r\n<tr style=\"box-sizing: border-box;\">\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0.5em 0.5em 0px; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 15.84px;\"><span style=\"box-sizing: border-box; font-weight: bolder;\">D&ograve;ng</span></span></td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0px 0.5em 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 15.84px;\">Silicat</span></td>\r\n</tr>\r\n<tr style=\"box-sizing: border-box;\">\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0.5em 0.5em 0px; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 15.84px;\"><span style=\"box-sizing: border-box; font-weight: bolder;\">Nh&oacute;m</span></span></td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0px 0.5em 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 15.84px;\">Beryl</span></td>\r\n</tr>\r\n<tr style=\"box-sizing: border-box;\">\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0.5em 0.5em 0px; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 15.84px;\"><span style=\"box-sizing: border-box; font-weight: bolder;\">Độ cứng</span></span></td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0px 0.5em 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 15.84px;\">7,5-8,0</span></td>\r\n</tr>\r\n<tr style=\"box-sizing: border-box;\">\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0.5em 0.5em 0px; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 15.84px;\"><span style=\"box-sizing: border-box; font-weight: bolder;\">Tỷ trọng</span></span></td>\r\n<td style=\"box-sizing: border-box; padding: 0.5em 0px 0.5em 0.5em; border-bottom: 1px solid #ececec; line-height: 1.3; font-size: 0.9em; color: #666666;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 15.84px;\">2,8</span></td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<h3 style=\"box-sizing: border-box; color: #555555; width: 840px; margin-top: 0px; margin-bottom: 0.5em; text-rendering: optimizespeed; font-size: 1.25em; font-family: \'Helvetica,Arial,sans-serif\', sans-serif;\"><span id=\"Tac_dung_va_y_nghia_cua_Aquamarine\" style=\"box-sizing: border-box; -webkit-box-decoration-break: clone;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 22px;\"><span style=\"box-sizing: border-box; font-weight: bolder;\">T&aacute;c dụng v&agrave; &yacute; nghĩa của Aquamarine</span></span></span></h3>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #777777; font-family: \'Helvetica,Arial,sans-serif\', sans-serif; font-size: medium; text-align: justify;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 17.6px;\">Truyền thuyết kể rằng những vi&ecirc;n đ&aacute; m&agrave;u xanh biển n&agrave;y được cất giữ trong rương b&aacute;u của c&aacute;c n&agrave;ng ti&ecirc;n c&aacute; đ&atilde; bị s&oacute;ng đ&aacute;nh tr&ocirc;i giạt v&agrave;o bờ. V&igrave; vậy m&agrave; Aquamarine được xem l&agrave; đ&aacute; qu&yacute; của thủy thủ, n&oacute; gắn liền với những chuyến đi biển an to&agrave;n, thuận lợi, chống lại nguy hiểm tr&ecirc;n biển.</span></p>\r\n<figure id=\"attachment_4511\" class=\"wp-caption aligncenter\" style=\"box-sizing: border-box; margin: 0px auto 2em; clear: both; max-width: 100%; color: #777777; font-family: \'Helvetica,Arial,sans-serif\', sans-serif; font-size: medium; width: 500px;\" aria-describedby=\"caption-attachment-4511\"><img class=\"wp-image-4511 size-full litespeed-loaded\" style=\"box-sizing: border-box; border-style: none; max-width: 100%; height: auto; display: inline-block; vertical-align: middle; transition: opacity 1s ease 0s; opacity: 1; width: auto !important;\" src=\"https://vongda5a.com/wp-content/uploads/2018/07/Tinh-th%E1%BB%83-que-%C4%91%C3%A1-aquamarine.jpg\" alt=\"Tinh thể Aquamarine ở Việt Nam\" width=\"500\" height=\"375\" data-lazyloaded=\"1\" data-src=\"https://vongda5a.com/wp-content/uploads/2018/07/Tinh-th%E1%BB%83-que-%C4%91%C3%A1-aquamarine.jpg\" data-was-processed=\"true\" />\r\n<figcaption id=\"caption-attachment-4511\" class=\"wp-caption-text\" style=\"box-sizing: border-box; text-align: center; padding: 0.4em; font-size: 0.9em; background: rgba(0, 0, 0, 0.05); font-style: italic;\">Tinh thể Aquamarine ở Việt Nam</figcaption>\r\n</figure>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #777777; font-family: \'Helvetica,Arial,sans-serif\', sans-serif; font-size: medium; text-align: justify;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 17.6px;\">Aquamarine đem lại sự vĩnh hằng cho c&aacute;c đ&ocirc;i uy&ecirc;n ương. V&igrave; năng lượng của n&oacute; bảo đảm cho một cuộc h&ocirc;n nh&acirc;n bền vững v&agrave; hạnh ph&uacute;c n&ecirc;n Aquamarine đ&atilde; trở th&agrave;nh một m&oacute;n qu&agrave; cưới qu&yacute; gi&aacute; v&agrave; &yacute; nghĩa. Về mặt sức khỏe, loại đ&aacute; n&agrave;y được cho l&agrave; gi&uacute;p giảm trừ c&aacute;c căn b&ecirc;nh li&ecirc;n quan đến thần kinh.</span></p>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #777777; font-family: \'Helvetica,Arial,sans-serif\', sans-serif; font-size: medium; text-align: justify;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 17.6px;\">Những người sử dụng Aquamarine l&agrave;m đồ trang sức sẽ tăng cường khả năng c&acirc;n bằng với thi&ecirc;n nhi&ecirc;n, cuộc sống, cởi mở hơn với ban b&egrave;, cũng như sẽ gặp nhiều may mắn trong t&igrave;nh y&ecirc;u.</span></p>\r\n<div style=\"box-sizing: border-box; color: #777777; font-family: \'Helvetica,Arial,sans-serif\', sans-serif; font-size: medium; text-align: justify;\" align=\"justify\">&nbsp;</div>\r\n<h3 style=\"box-sizing: border-box; color: #555555; width: 840px; margin-top: 0px; margin-bottom: 0.5em; text-rendering: optimizespeed; font-size: 1.25em; font-family: \'Helvetica,Arial,sans-serif\', sans-serif; text-align: justify;\"><span id=\"Da_Aquamarine_hop_menh_nao\" style=\"box-sizing: border-box; -webkit-box-decoration-break: clone;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 22px;\"><span style=\"box-sizing: border-box; font-weight: bolder;\">Đ&aacute; Aquamarine hợp mệnh n&agrave;o</span></span></span></h3>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #777777; font-family: \'Helvetica,Arial,sans-serif\', sans-serif; font-size: medium; text-align: justify;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 17.6px;\">Trong văn h&oacute;a phương T&acirc;y, Aquamarine đem lại nhiều may mắn, l&agrave;m tăng vẻ đẹp của người sở hữu v&agrave; thịnh vượng cho chủ nh&acirc;n. N&oacute; ph&ugrave; hợp cho những người sinh v&agrave;o th&aacute;ng ba, v&agrave; l&agrave; m&oacute;n qu&agrave; kỷ niệm cưới lần thứ mười ch&iacute;n.</span></p>\r\n<figure id=\"attachment_3024\" class=\"wp-caption aligncenter\" style=\"box-sizing: border-box; margin: 0px auto 2em; clear: both; max-width: 100%; color: #777777; font-family: \'Helvetica,Arial,sans-serif\', sans-serif; font-size: medium; width: 500px;\" aria-describedby=\"caption-attachment-3024\"><img class=\"wp-image-3024 litespeed-loaded\" style=\"box-sizing: border-box; border-style: none; max-width: 100%; height: auto; display: inline-block; vertical-align: middle; transition: opacity 1s ease 0s; opacity: 1; width: auto !important;\" src=\"https://vongda5a.com/wp-content/uploads/2019/10/H%E1%BB%93-ly-%C4%91%C3%A1-Aquamarine-t%E1%BB%B1-nhi%C3%AAn-M%E1%BB%87nh-Th%E1%BB%A7y-v%C3%A0-M%E1%BB%99c-1.jpg\" sizes=\"(max-width: 500px) 100vw, 500px\" srcset=\"https://vongda5a.com/wp-content/uploads/2019/10/Hồ-ly-đ&aacute;-Aquamarine-tự-nhi&ecirc;n-Mệnh-Thủy-v&agrave;-Mộc-1.jpg 720w, https://vongda5a.com/wp-content/uploads/2019/10/Hồ-ly-đ&aacute;-Aquamarine-tự-nhi&ecirc;n-Mệnh-Thủy-v&agrave;-Mộc-1-100x100.jpg 100w, https://vongda5a.com/wp-content/uploads/2019/10/Hồ-ly-đ&aacute;-Aquamarine-tự-nhi&ecirc;n-Mệnh-Thủy-v&agrave;-Mộc-1-400x400.jpg 400w, https://vongda5a.com/wp-content/uploads/2019/10/Hồ-ly-đ&aacute;-Aquamarine-tự-nhi&ecirc;n-Mệnh-Thủy-v&agrave;-Mộc-1-205x205.jpg 205w, https://vongda5a.com/wp-content/uploads/2019/10/Hồ-ly-đ&aacute;-Aquamarine-tự-nhi&ecirc;n-Mệnh-Thủy-v&agrave;-Mộc-1-600x600.jpg 600w\" alt=\"Hồ ly đ&aacute; Aquamarine tự nhi&ecirc;n - Mệnh Thủy v&agrave; Mộc\" width=\"500\" height=\"500\" data-lazyloaded=\"1\" data-src=\"https://vongda5a.com/wp-content/uploads/2019/10/H%E1%BB%93-ly-%C4%91%C3%A1-Aquamarine-t%E1%BB%B1-nhi%C3%AAn-M%E1%BB%87nh-Th%E1%BB%A7y-v%C3%A0-M%E1%BB%99c-1.jpg\" data-srcset=\"https://vongda5a.com/wp-content/uploads/2019/10/Hồ-ly-đ&aacute;-Aquamarine-tự-nhi&ecirc;n-Mệnh-Thủy-v&agrave;-Mộc-1.jpg 720w, https://vongda5a.com/wp-content/uploads/2019/10/Hồ-ly-đ&aacute;-Aquamarine-tự-nhi&ecirc;n-Mệnh-Thủy-v&agrave;-Mộc-1-100x100.jpg 100w, https://vongda5a.com/wp-content/uploads/2019/10/Hồ-ly-đ&aacute;-Aquamarine-tự-nhi&ecirc;n-Mệnh-Thủy-v&agrave;-Mộc-1-400x400.jpg 400w, https://vongda5a.com/wp-content/uploads/2019/10/Hồ-ly-đ&aacute;-Aquamarine-tự-nhi&ecirc;n-Mệnh-Thủy-v&agrave;-Mộc-1-205x205.jpg 205w, https://vongda5a.com/wp-content/uploads/2019/10/Hồ-ly-đ&aacute;-Aquamarine-tự-nhi&ecirc;n-Mệnh-Thủy-v&agrave;-Mộc-1-600x600.jpg 600w\" data-sizes=\"(max-width: 500px) 100vw, 500px\" data-was-processed=\"true\" />\r\n<figcaption id=\"caption-attachment-3024\" class=\"wp-caption-text\" style=\"box-sizing: border-box; text-align: center; padding: 0.4em; font-size: 0.9em; background: rgba(0, 0, 0, 0.05); font-style: italic;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 15.84px;\">Hồ ly đ&aacute; Aquamarine tự nhi&ecirc;n &ndash; Mệnh Thủy v&agrave; Mộc</span></figcaption>\r\n</figure>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #777777; font-family: \'Helvetica,Arial,sans-serif\', sans-serif; font-size: medium; text-align: justify;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 17.6px;\">Trong văn h&oacute;a phương Đ&ocirc;ng, m&agrave;u xanh nước biển của Aquamarine thuộc h&agrave;nh thủy, l&agrave; trang sức cầu t&agrave;i, cầu may mắn v&agrave; b&igrave;nh an cho người&nbsp;<span style=\"box-sizing: border-box; font-weight: bolder;\"><a style=\"box-sizing: border-box; background-color: transparent; touch-action: manipulation; color: #1e73be; text-decoration-line: none;\" href=\"https://tramdathanhxuan.com/menh/menh-thuy/\">mệnh Thủy</a></span>&nbsp;v&agrave;&nbsp;<span style=\"box-sizing: border-box; font-weight: bolder;\"><a style=\"box-sizing: border-box; background-color: transparent; touch-action: manipulation; color: #1e73be; text-decoration-line: none;\" href=\"https://tramdathanhxuan.com/menh/menh-moc/\">mệnh Mộc</a></span>. Người mệnh Thủy sử dụng đ&aacute; aquamarine để được tương hợp, v&agrave; người mệnh Mộc đeo để được tương sinh.</span></p>\r\n<h3 style=\"box-sizing: border-box; color: #555555; width: 840px; margin-top: 0px; margin-bottom: 0.5em; text-rendering: optimizespeed; font-size: 1.25em; font-family: \'Helvetica,Arial,sans-serif\', sans-serif; text-align: justify;\"><span id=\"Vong_tay_Da_Aquamarine\" style=\"box-sizing: border-box; -webkit-box-decoration-break: clone;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 22px;\"><span style=\"box-sizing: border-box; font-weight: bolder;\">V&ograve;ng tay Đ&aacute; Aquamarine</span></span></span></h3>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #777777; font-family: \'Helvetica,Arial,sans-serif\', sans-serif; font-size: medium; text-align: justify;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 17.6px;\">Aquamarine được xếp c&ugrave;ng loại với những loại đ&aacute; qu&yacute; như kim cương, ruby v&agrave; sapphire bởi vẻ đẹp ho&agrave;n hảo c&ugrave;ng những c&ocirc;ng dụng thần kỳ của n&oacute;. Với độ cứng l&agrave; 7,5 tr&ecirc;n thang Mohs, aquamarine l&agrave; đ&aacute; qu&yacute; bền vững, th&iacute;ch hợp cho việc đeo n&oacute; h&agrave;ng ng&agrave;y.</span></p>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #777777; font-family: \'Helvetica,Arial,sans-serif\', sans-serif; font-size: medium;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 17.6px;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img title=\"i\" src=\"http://127.0.0.1:8000/storage/news/August2021/DSCF6513-3.jpg\" alt=\"\" /><img class=\"wp-image-3024 litespeed-loaded\" style=\"font-family: \'Helvetica,Arial,sans-serif\', sans-serif; font-size: medium; box-sizing: border-box; border-style: none; max-width: 100%; height: auto; display: inline-block; vertical-align: middle; transition: opacity 1s ease 0s; opacity: 1; width: auto !important;\" src=\"https://vongda5a.com/wp-content/uploads/2019/10/H%E1%BB%93-ly-%C4%91%C3%A1-Aquamarine-t%E1%BB%B1-nhi%C3%AAn-M%E1%BB%87nh-Th%E1%BB%A7y-v%C3%A0-M%E1%BB%99c-1.jpg\" sizes=\"(max-width: 500px) 100vw, 500px\" srcset=\"https://vongda5a.com/wp-content/uploads/2019/10/Hồ-ly-đ&aacute;-Aquamarine-tự-nhi&ecirc;n-Mệnh-Thủy-v&agrave;-Mộc-1.jpg 720w, https://vongda5a.com/wp-content/uploads/2019/10/Hồ-ly-đ&aacute;-Aquamarine-tự-nhi&ecirc;n-Mệnh-Thủy-v&agrave;-Mộc-1-100x100.jpg 100w, https://vongda5a.com/wp-content/uploads/2019/10/Hồ-ly-đ&aacute;-Aquamarine-tự-nhi&ecirc;n-Mệnh-Thủy-v&agrave;-Mộc-1-400x400.jpg 400w, https://vongda5a.com/wp-content/uploads/2019/10/Hồ-ly-đ&aacute;-Aquamarine-tự-nhi&ecirc;n-Mệnh-Thủy-v&agrave;-Mộc-1-205x205.jpg 205w, https://vongda5a.com/wp-content/uploads/2019/10/Hồ-ly-đ&aacute;-Aquamarine-tự-nhi&ecirc;n-Mệnh-Thủy-v&agrave;-Mộc-1-600x600.jpg 600w\" alt=\"Hồ ly đ&aacute; Aquamarine tự nhi&ecirc;n - Mệnh Thủy v&agrave; Mộc\" width=\"500\" height=\"500\" data-lazyloaded=\"1\" data-src=\"https://vongda5a.com/wp-content/uploads/2019/10/H%E1%BB%93-ly-%C4%91%C3%A1-Aquamarine-t%E1%BB%B1-nhi%C3%AAn-M%E1%BB%87nh-Th%E1%BB%A7y-v%C3%A0-M%E1%BB%99c-1.jpg\" data-srcset=\"https://vongda5a.com/wp-content/uploads/2019/10/Hồ-ly-đ&aacute;-Aquamarine-tự-nhi&ecirc;n-Mệnh-Thủy-v&agrave;-Mộc-1.jpg 720w, https://vongda5a.com/wp-content/uploads/2019/10/Hồ-ly-đ&aacute;-Aquamarine-tự-nhi&ecirc;n-Mệnh-Thủy-v&agrave;-Mộc-1-100x100.jpg 100w, https://vongda5a.com/wp-content/uploads/2019/10/Hồ-ly-đ&aacute;-Aquamarine-tự-nhi&ecirc;n-Mệnh-Thủy-v&agrave;-Mộc-1-400x400.jpg 400w, https://vongda5a.com/wp-content/uploads/2019/10/Hồ-ly-đ&aacute;-Aquamarine-tự-nhi&ecirc;n-Mệnh-Thủy-v&agrave;-Mộc-1-205x205.jpg 205w, https://vongda5a.com/wp-content/uploads/2019/10/Hồ-ly-đ&aacute;-Aquamarine-tự-nhi&ecirc;n-Mệnh-Thủy-v&agrave;-Mộc-1-600x600.jpg 600w\" data-sizes=\"(max-width: 500px) 100vw, 500px\" data-was-processed=\"true\" /><br /></span></p>\r\n<p style=\"box-sizing: border-box; margin-bottom: 1.3em; margin-top: 0px; color: #777777; font-family: \'Helvetica,Arial,sans-serif\', sans-serif; font-size: medium; text-align: justify;\"><span style=\"box-sizing: border-box; font-family: verdana, geneva, sans-serif; font-size: 17.6px;\">Những chiếc v&ograve;ng tay đ&aacute; aquamarine rất th&iacute;ch hợp để l&agrave;m qu&agrave; cưới, qu&agrave; sinh nhật, ch&uacute;ng vừa thể hiện sự tinh tế của người tặng, vừa hứa hẹn sẽ l&agrave;m h&agrave;i l&ograve;ng những ai sở hữu ch&uacute;ng.</span></p>', NULL, NULL, 'da-aquamarine', NULL, '2021-08-18 02:35:37', '2021-08-18 02:35:37', 'news\\August2021\\F5YgplxEs3YibXrwDJnr.jpg', 1);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -350,7 +359,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `permissions`
+-- Table structure for table `permissions`
 --
 
 CREATE TABLE `permissions` (
@@ -362,7 +371,7 @@ CREATE TABLE `permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `permissions`
+-- Dumping data for table `permissions`
 --
 
 INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`) VALUES
@@ -421,7 +430,7 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `permission_role`
+-- Table structure for table `permission_role`
 --
 
 CREATE TABLE `permission_role` (
@@ -430,7 +439,7 @@ CREATE TABLE `permission_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `permission_role`
+-- Dumping data for table `permission_role`
 --
 
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
@@ -489,7 +498,7 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `products`
+-- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
@@ -508,17 +517,17 @@ CREATE TABLE `products` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `category_id` int(11) NOT NULL,
-  `vendor_id` int(11) NOT NULL,
+  `stone_id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `gender` tinyint(4) DEFAULT 0,
   `isHot` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `products`
+-- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `description`, `image`, `cost`, `price`, `stock`, `views`, `slug`, `seo_title`, `seo_description`, `deleted_at`, `created_at`, `updated_at`, `category_id`, `vendor_id`, `user_id`, `gender`, `isHot`) VALUES
+INSERT INTO `products` (`id`, `name`, `description`, `image`, `cost`, `price`, `stock`, `views`, `slug`, `seo_title`, `seo_description`, `deleted_at`, `created_at`, `updated_at`, `category_id`, `stone_id`, `user_id`, `gender`, `isHot`) VALUES
 (1, 'VÒNG TAY ĐÁ CẨM THẠCH XANH', '<p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4; text-align: justify;\"><span style=\"box-sizing: border-box;\">&Yacute; nghĩa v&ograve;ng tay ngọc b&iacute;ch:</span></p>\r\n<ul style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4;\">\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Trong H&aacute;n tự, chữ Vương th&ecirc;m một dấu chấm th&igrave; th&agrave;nh chữ Ngọc, &yacute; n&oacute;i ai d&ugrave;ng ngọc ắt phải người vương giả, gi&agrave;u sang. V&igrave; vậy c&aacute;c loại ngọc qu&yacute;, ti&ecirc;u biểu l&agrave; Ngọc B&iacute;ch Nephrite l&agrave; những vi&ecirc;n đ&aacute; mang gi&aacute; trị phong thủy cao, hỗ trợ rất tốt cho đường c&ocirc;ng danh t&agrave;i lộc.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Ngọc Nephrite được khai th&aacute;c chủ yếu ở British Columbia &ndash; một bang ở cực t&acirc;y đất nước Canada, ở Myanma, hay ở những cao nguy&ecirc;n đ&aacute; Trung Quốc hay T&acirc;y Tạng. Những khối đ&aacute; Ngọc B&iacute;ch rất cứng, để khai th&aacute;c ch&uacute;ng người ta phải sử dụng những mũi khoan Kim Cương đen. Kh&oacute; khăn trong qu&aacute; tr&igrave;nh khai th&aacute;c v&agrave; chế t&aacute;c th&agrave;nh phẩm khiến cho số lượng Ngọc B&iacute;ch được sản xuất hằng năm rất khi&ecirc;m tốn.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Ngọc B&iacute;ch Nephrite l&agrave; biểu tượng của quyền uy, danh vọng, l&agrave; đại diện của tầng lớp qu&yacute; tộc. Người ta c&ograve;n cho rằng Ngọc B&iacute;ch l&agrave; biểu tượng của b&igrave;nh an, may mắn. Ngọc B&iacute;ch tăng cường sức khỏe, c&oacute; t&aacute;c dụng k&eacute;o d&agrave;i tuổi thọ. Người mang Ngọc b&ecirc;n m&igrave;nh thường xuy&ecirc;n th&igrave; chống nhược thị, hỗ trợ lu&acirc;n chuyển những d&ograve;ng kh&iacute; trong cơ thể.</li>\r\n</ul>\r\n<p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4; text-align: justify;\"><span style=\"box-sizing: border-box;\">Để bảo quản v&ograve;ng tay Ngọc B&iacute;ch Nephrite, ta cần lưu &yacute;:</span></p>\r\n<ul style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4;\">\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Cũng giống như nhiều loại đ&aacute; qu&yacute; kh&aacute;c, khi sử dụng v&ograve;ng tay Ngọc B&iacute;ch Nephrite, bạn n&ecirc;n giữ g&igrave;n cẩn thận, tr&aacute;nh g&acirc;y va đập, trầy xước ảnh hưởng tới bề mặt vi&ecirc;n đ&aacute;.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Kh&ocirc;ng được để v&ograve;ng tay Ngọc B&iacute;ch Nephrite tiếp x&uacute;c với nhiệt hoặc axit.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Khi v&ograve;ng tay Ngọc B&iacute;ch Nephrite bị bẩn, bạn c&oacute; thể rửa bằng nước lọc hoặc c&aacute;c loại nước rửa đ&aacute; ngọc chuy&ecirc;n dụng.&nbsp;</li>\r\n</ul>', 'products\\August2021\\4zBvofooHJsoPemBfw9x.png', 18000000, 18000000, 18000000, 10, 'vong-tay-da-cam-thach-xanh', 'VÒNG TAY ĐÁ CẨM THẠCH XANH', 'May Mắn, Hạnh Phúc dành cho mệnh Kim,  mệnh Thủy. Thạch anh ưu linh là anh cả trong họ thạch anh với đặc điểm tinh thể đá thạch anh bị xâm nhập bởi một số khoáng chất khác tạo nên những viên đá với nhiều sắc thái và hình thù bên trong.', NULL, '2021-08-14 06:39:00', '2021-08-14 07:16:04', 3, 1, NULL, 0, 1),
 (2, 'NHẪN VÀNG BỌC ĐÁ SAPHIA HỒNG', '<p><span style=\"color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; text-align: justify; background-color: #f4f4f4;\">Nhẫn phong thủy kh&ocirc;ng chỉ l&agrave; loại trang sức th&ocirc;ng thường m&agrave; theo quan niệm của người phương Đ&ocirc;ng th&igrave; việc đeo nhẫn phong thủy c&ograve;n mang &yacute; nghĩa t&acirc;m linh s&acirc;u sắc. Ng&agrave;y nay rất nhiều loại đ&aacute; qu&yacute; được chế t&aacute;c th&agrave;nh nhẫn với nhiều &yacute; nghĩa, mang lại vận kh&iacute; tốt, c&ocirc;ng danh sự nghiệp thịnh vượng, gặp nhiều may mắn trong cuộc sống.&nbsp;</span></p>', 'products\\August2021\\DX8zgbhl7iANWBmyU7mf.png', 3000000, 3000000, 3000000, 10, 'nhan-vang-boc-da-saphia-hong', 'NHẪN VÀNG BỌC ĐÁ SAPHIA HỒNG', 'May Mắn, Hạnh Phúc dành cho mệnh Kim,  mệnh Thủy. Thạch anh ưu linh là anh cả trong họ thạch anh với đặc điểm tinh thể đá thạch anh bị xâm nhập bởi một số khoáng chất khác tạo nên những viên đá với nhiều sắc thái và hình thù bên trong.', NULL, '2021-08-14 07:26:50', '2021-08-14 07:26:50', 2, 1, NULL, 1, 1),
 (3, 'VÒNG TAY ĐÁ CẨM THẠCH XANH', '<p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4; text-align: justify;\"><span style=\"box-sizing: border-box;\">&Yacute; nghĩa v&ograve;ng tay ngọc b&iacute;ch:</span></p>\r\n<ul style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4;\">\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Trong H&aacute;n tự, chữ Vương th&ecirc;m một dấu chấm th&igrave; th&agrave;nh chữ Ngọc, &yacute; n&oacute;i ai d&ugrave;ng ngọc ắt phải người vương giả, gi&agrave;u sang. V&igrave; vậy c&aacute;c loại ngọc qu&yacute;, ti&ecirc;u biểu l&agrave; Ngọc B&iacute;ch Nephrite l&agrave; những vi&ecirc;n đ&aacute; mang gi&aacute; trị phong thủy cao, hỗ trợ rất tốt cho đường c&ocirc;ng danh t&agrave;i lộc.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Ngọc Nephrite được khai th&aacute;c chủ yếu ở British Columbia &ndash; một bang ở cực t&acirc;y đất nước Canada, ở Myanma, hay ở những cao nguy&ecirc;n đ&aacute; Trung Quốc hay T&acirc;y Tạng. Những khối đ&aacute; Ngọc B&iacute;ch rất cứng, để khai th&aacute;c ch&uacute;ng người ta phải sử dụng những mũi khoan Kim Cương đen. Kh&oacute; khăn trong qu&aacute; tr&igrave;nh khai th&aacute;c v&agrave; chế t&aacute;c th&agrave;nh phẩm khiến cho số lượng Ngọc B&iacute;ch được sản xuất hằng năm rất khi&ecirc;m tốn.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Ngọc B&iacute;ch Nephrite l&agrave; biểu tượng của quyền uy, danh vọng, l&agrave; đại diện của tầng lớp qu&yacute; tộc. Người ta c&ograve;n cho rằng Ngọc B&iacute;ch l&agrave; biểu tượng của b&igrave;nh an, may mắn. Ngọc B&iacute;ch tăng cường sức khỏe, c&oacute; t&aacute;c dụng k&eacute;o d&agrave;i tuổi thọ. Người mang Ngọc b&ecirc;n m&igrave;nh thường xuy&ecirc;n th&igrave; chống nhược thị, hỗ trợ lu&acirc;n chuyển những d&ograve;ng kh&iacute; trong cơ thể.</li>\r\n</ul>\r\n<p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4; text-align: justify;\"><span style=\"box-sizing: border-box;\">Để bảo quản v&ograve;ng tay Ngọc B&iacute;ch Nephrite, ta cần lưu &yacute;:</span></p>\r\n<ul style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4;\">\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Cũng giống như nhiều loại đ&aacute; qu&yacute; kh&aacute;c, khi sử dụng v&ograve;ng tay Ngọc B&iacute;ch Nephrite, bạn n&ecirc;n giữ g&igrave;n cẩn thận, tr&aacute;nh g&acirc;y va đập, trầy xước ảnh hưởng tới bề mặt vi&ecirc;n đ&aacute;.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Kh&ocirc;ng được để v&ograve;ng tay Ngọc B&iacute;ch Nephrite tiếp x&uacute;c với nhiệt hoặc axit.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Khi v&ograve;ng tay Ngọc B&iacute;ch Nephrite bị bẩn, bạn c&oacute; thể rửa bằng nước lọc hoặc c&aacute;c loại nước rửa đ&aacute; ngọc chuy&ecirc;n dụng.&nbsp;</li>\r\n</ul>', 'products\\August2021\\4zBvofooHJsoPemBfw9x.png', 18000000, 18000000, 18000000, 10, 'vong-tay-da-cam-thach-xanh', 'VÒNG TAY ĐÁ CẨM THẠCH XANH', 'May Mắn, Hạnh Phúc dành cho mệnh Kim,  mệnh Thủy. Thạch anh ưu linh là anh cả trong họ thạch anh với đặc điểm tinh thể đá thạch anh bị xâm nhập bởi một số khoáng chất khác tạo nên những viên đá với nhiều sắc thái và hình thù bên trong.', NULL, '2021-08-13 23:39:00', '2021-08-14 00:16:04', 3, 1, NULL, 0, 1),
@@ -540,7 +549,7 @@ INSERT INTO `products` (`id`, `name`, `description`, `image`, `cost`, `price`, `
 (19, 'VÒNG TAY ĐÁ CẨM THẠCH XANH', '<p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4; text-align: justify;\"><span style=\"box-sizing: border-box;\">&Yacute; nghĩa v&ograve;ng tay ngọc b&iacute;ch:</span></p>\r\n<ul style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4;\">\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Trong H&aacute;n tự, chữ Vương th&ecirc;m một dấu chấm th&igrave; th&agrave;nh chữ Ngọc, &yacute; n&oacute;i ai d&ugrave;ng ngọc ắt phải người vương giả, gi&agrave;u sang. V&igrave; vậy c&aacute;c loại ngọc qu&yacute;, ti&ecirc;u biểu l&agrave; Ngọc B&iacute;ch Nephrite l&agrave; những vi&ecirc;n đ&aacute; mang gi&aacute; trị phong thủy cao, hỗ trợ rất tốt cho đường c&ocirc;ng danh t&agrave;i lộc.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Ngọc Nephrite được khai th&aacute;c chủ yếu ở British Columbia &ndash; một bang ở cực t&acirc;y đất nước Canada, ở Myanma, hay ở những cao nguy&ecirc;n đ&aacute; Trung Quốc hay T&acirc;y Tạng. Những khối đ&aacute; Ngọc B&iacute;ch rất cứng, để khai th&aacute;c ch&uacute;ng người ta phải sử dụng những mũi khoan Kim Cương đen. Kh&oacute; khăn trong qu&aacute; tr&igrave;nh khai th&aacute;c v&agrave; chế t&aacute;c th&agrave;nh phẩm khiến cho số lượng Ngọc B&iacute;ch được sản xuất hằng năm rất khi&ecirc;m tốn.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Ngọc B&iacute;ch Nephrite l&agrave; biểu tượng của quyền uy, danh vọng, l&agrave; đại diện của tầng lớp qu&yacute; tộc. Người ta c&ograve;n cho rằng Ngọc B&iacute;ch l&agrave; biểu tượng của b&igrave;nh an, may mắn. Ngọc B&iacute;ch tăng cường sức khỏe, c&oacute; t&aacute;c dụng k&eacute;o d&agrave;i tuổi thọ. Người mang Ngọc b&ecirc;n m&igrave;nh thường xuy&ecirc;n th&igrave; chống nhược thị, hỗ trợ lu&acirc;n chuyển những d&ograve;ng kh&iacute; trong cơ thể.</li>\r\n</ul>\r\n<p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4; text-align: justify;\"><span style=\"box-sizing: border-box;\">Để bảo quản v&ograve;ng tay Ngọc B&iacute;ch Nephrite, ta cần lưu &yacute;:</span></p>\r\n<ul style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4;\">\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Cũng giống như nhiều loại đ&aacute; qu&yacute; kh&aacute;c, khi sử dụng v&ograve;ng tay Ngọc B&iacute;ch Nephrite, bạn n&ecirc;n giữ g&igrave;n cẩn thận, tr&aacute;nh g&acirc;y va đập, trầy xước ảnh hưởng tới bề mặt vi&ecirc;n đ&aacute;.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Kh&ocirc;ng được để v&ograve;ng tay Ngọc B&iacute;ch Nephrite tiếp x&uacute;c với nhiệt hoặc axit.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Khi v&ograve;ng tay Ngọc B&iacute;ch Nephrite bị bẩn, bạn c&oacute; thể rửa bằng nước lọc hoặc c&aacute;c loại nước rửa đ&aacute; ngọc chuy&ecirc;n dụng.&nbsp;</li>\r\n</ul>', 'products\\August2021\\4zBvofooHJsoPemBfw9x.png', 18000000, 18000000, 18000000, 10, 'vong-tay-da-cam-thach-xanh', 'VÒNG TAY ĐÁ CẨM THẠCH XANH', NULL, NULL, '2021-08-13 23:39:00', '2021-08-14 00:16:04', 6, 1, NULL, 0, 0),
 (20, 'NHẪN VÀNG BỌC ĐÁ SAPHIA HỒNG', '<p><span style=\"color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; text-align: justify; background-color: #f4f4f4;\">Nhẫn phong thủy kh&ocirc;ng chỉ l&agrave; loại trang sức th&ocirc;ng thường m&agrave; theo quan niệm của người phương Đ&ocirc;ng th&igrave; việc đeo nhẫn phong thủy c&ograve;n mang &yacute; nghĩa t&acirc;m linh s&acirc;u sắc. Ng&agrave;y nay rất nhiều loại đ&aacute; qu&yacute; được chế t&aacute;c th&agrave;nh nhẫn với nhiều &yacute; nghĩa, mang lại vận kh&iacute; tốt, c&ocirc;ng danh sự nghiệp thịnh vượng, gặp nhiều may mắn trong cuộc sống.&nbsp;</span></p>', 'products\\August2021\\DX8zgbhl7iANWBmyU7mf.png', 3000000, 3000000, 3000000, 10, 'nhan-vang-boc-da-saphia-hong', 'NHẪN VÀNG BỌC ĐÁ SAPHIA HỒNG', NULL, NULL, '2021-08-14 00:26:50', '2021-08-14 00:26:50', 6, 1, NULL, 1, 0),
 (21, 'VÒNG TAY ĐÁ CẨM THẠCH XANH', '<p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4; text-align: justify;\"><span style=\"box-sizing: border-box;\">&Yacute; nghĩa v&ograve;ng tay ngọc b&iacute;ch:</span></p>\r\n<ul style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4;\">\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Trong H&aacute;n tự, chữ Vương th&ecirc;m một dấu chấm th&igrave; th&agrave;nh chữ Ngọc, &yacute; n&oacute;i ai d&ugrave;ng ngọc ắt phải người vương giả, gi&agrave;u sang. V&igrave; vậy c&aacute;c loại ngọc qu&yacute;, ti&ecirc;u biểu l&agrave; Ngọc B&iacute;ch Nephrite l&agrave; những vi&ecirc;n đ&aacute; mang gi&aacute; trị phong thủy cao, hỗ trợ rất tốt cho đường c&ocirc;ng danh t&agrave;i lộc.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Ngọc Nephrite được khai th&aacute;c chủ yếu ở British Columbia &ndash; một bang ở cực t&acirc;y đất nước Canada, ở Myanma, hay ở những cao nguy&ecirc;n đ&aacute; Trung Quốc hay T&acirc;y Tạng. Những khối đ&aacute; Ngọc B&iacute;ch rất cứng, để khai th&aacute;c ch&uacute;ng người ta phải sử dụng những mũi khoan Kim Cương đen. Kh&oacute; khăn trong qu&aacute; tr&igrave;nh khai th&aacute;c v&agrave; chế t&aacute;c th&agrave;nh phẩm khiến cho số lượng Ngọc B&iacute;ch được sản xuất hằng năm rất khi&ecirc;m tốn.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Ngọc B&iacute;ch Nephrite l&agrave; biểu tượng của quyền uy, danh vọng, l&agrave; đại diện của tầng lớp qu&yacute; tộc. Người ta c&ograve;n cho rằng Ngọc B&iacute;ch l&agrave; biểu tượng của b&igrave;nh an, may mắn. Ngọc B&iacute;ch tăng cường sức khỏe, c&oacute; t&aacute;c dụng k&eacute;o d&agrave;i tuổi thọ. Người mang Ngọc b&ecirc;n m&igrave;nh thường xuy&ecirc;n th&igrave; chống nhược thị, hỗ trợ lu&acirc;n chuyển những d&ograve;ng kh&iacute; trong cơ thể.</li>\r\n</ul>\r\n<p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4; text-align: justify;\"><span style=\"box-sizing: border-box;\">Để bảo quản v&ograve;ng tay Ngọc B&iacute;ch Nephrite, ta cần lưu &yacute;:</span></p>\r\n<ul style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4;\">\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Cũng giống như nhiều loại đ&aacute; qu&yacute; kh&aacute;c, khi sử dụng v&ograve;ng tay Ngọc B&iacute;ch Nephrite, bạn n&ecirc;n giữ g&igrave;n cẩn thận, tr&aacute;nh g&acirc;y va đập, trầy xước ảnh hưởng tới bề mặt vi&ecirc;n đ&aacute;.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Kh&ocirc;ng được để v&ograve;ng tay Ngọc B&iacute;ch Nephrite tiếp x&uacute;c với nhiệt hoặc axit.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Khi v&ograve;ng tay Ngọc B&iacute;ch Nephrite bị bẩn, bạn c&oacute; thể rửa bằng nước lọc hoặc c&aacute;c loại nước rửa đ&aacute; ngọc chuy&ecirc;n dụng.&nbsp;</li>\r\n</ul>', 'products\\August2021\\4zBvofooHJsoPemBfw9x.png', 18000000, 18000000, 18000000, 10, 'vong-tay-da-cam-thach-xanh', 'VÒNG TAY ĐÁ CẨM THẠCH XANH', NULL, NULL, '2021-08-13 23:39:00', '2021-08-14 00:16:04', 6, 1, NULL, 0, 0);
-INSERT INTO `products` (`id`, `name`, `description`, `image`, `cost`, `price`, `stock`, `views`, `slug`, `seo_title`, `seo_description`, `deleted_at`, `created_at`, `updated_at`, `category_id`, `vendor_id`, `user_id`, `gender`, `isHot`) VALUES
+INSERT INTO `products` (`id`, `name`, `description`, `image`, `cost`, `price`, `stock`, `views`, `slug`, `seo_title`, `seo_description`, `deleted_at`, `created_at`, `updated_at`, `category_id`, `stone_id`, `user_id`, `gender`, `isHot`) VALUES
 (22, 'NHẪN VÀNG BỌC ĐÁ SAPHIA HỒNG', '<p><span style=\"color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; text-align: justify; background-color: #f4f4f4;\">Nhẫn phong thủy kh&ocirc;ng chỉ l&agrave; loại trang sức th&ocirc;ng thường m&agrave; theo quan niệm của người phương Đ&ocirc;ng th&igrave; việc đeo nhẫn phong thủy c&ograve;n mang &yacute; nghĩa t&acirc;m linh s&acirc;u sắc. Ng&agrave;y nay rất nhiều loại đ&aacute; qu&yacute; được chế t&aacute;c th&agrave;nh nhẫn với nhiều &yacute; nghĩa, mang lại vận kh&iacute; tốt, c&ocirc;ng danh sự nghiệp thịnh vượng, gặp nhiều may mắn trong cuộc sống.&nbsp;</span></p>', 'products\\August2021\\DX8zgbhl7iANWBmyU7mf.png', 3000000, 3000000, 3000000, 10, 'nhan-vang-boc-da-saphia-hong', 'NHẪN VÀNG BỌC ĐÁ SAPHIA HỒNG', NULL, NULL, '2021-08-14 00:26:50', '2021-08-14 00:26:50', 2, 1, NULL, 1, 0),
 (23, 'VÒNG TAY ĐÁ CẨM THẠCH XANH', '<p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4; text-align: justify;\"><span style=\"box-sizing: border-box;\">&Yacute; nghĩa v&ograve;ng tay ngọc b&iacute;ch:</span></p>\r\n<ul style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4;\">\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Trong H&aacute;n tự, chữ Vương th&ecirc;m một dấu chấm th&igrave; th&agrave;nh chữ Ngọc, &yacute; n&oacute;i ai d&ugrave;ng ngọc ắt phải người vương giả, gi&agrave;u sang. V&igrave; vậy c&aacute;c loại ngọc qu&yacute;, ti&ecirc;u biểu l&agrave; Ngọc B&iacute;ch Nephrite l&agrave; những vi&ecirc;n đ&aacute; mang gi&aacute; trị phong thủy cao, hỗ trợ rất tốt cho đường c&ocirc;ng danh t&agrave;i lộc.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Ngọc Nephrite được khai th&aacute;c chủ yếu ở British Columbia &ndash; một bang ở cực t&acirc;y đất nước Canada, ở Myanma, hay ở những cao nguy&ecirc;n đ&aacute; Trung Quốc hay T&acirc;y Tạng. Những khối đ&aacute; Ngọc B&iacute;ch rất cứng, để khai th&aacute;c ch&uacute;ng người ta phải sử dụng những mũi khoan Kim Cương đen. Kh&oacute; khăn trong qu&aacute; tr&igrave;nh khai th&aacute;c v&agrave; chế t&aacute;c th&agrave;nh phẩm khiến cho số lượng Ngọc B&iacute;ch được sản xuất hằng năm rất khi&ecirc;m tốn.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Ngọc B&iacute;ch Nephrite l&agrave; biểu tượng của quyền uy, danh vọng, l&agrave; đại diện của tầng lớp qu&yacute; tộc. Người ta c&ograve;n cho rằng Ngọc B&iacute;ch l&agrave; biểu tượng của b&igrave;nh an, may mắn. Ngọc B&iacute;ch tăng cường sức khỏe, c&oacute; t&aacute;c dụng k&eacute;o d&agrave;i tuổi thọ. Người mang Ngọc b&ecirc;n m&igrave;nh thường xuy&ecirc;n th&igrave; chống nhược thị, hỗ trợ lu&acirc;n chuyển những d&ograve;ng kh&iacute; trong cơ thể.</li>\r\n</ul>\r\n<p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4; text-align: justify;\"><span style=\"box-sizing: border-box;\">Để bảo quản v&ograve;ng tay Ngọc B&iacute;ch Nephrite, ta cần lưu &yacute;:</span></p>\r\n<ul style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4;\">\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Cũng giống như nhiều loại đ&aacute; qu&yacute; kh&aacute;c, khi sử dụng v&ograve;ng tay Ngọc B&iacute;ch Nephrite, bạn n&ecirc;n giữ g&igrave;n cẩn thận, tr&aacute;nh g&acirc;y va đập, trầy xước ảnh hưởng tới bề mặt vi&ecirc;n đ&aacute;.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Kh&ocirc;ng được để v&ograve;ng tay Ngọc B&iacute;ch Nephrite tiếp x&uacute;c với nhiệt hoặc axit.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Khi v&ograve;ng tay Ngọc B&iacute;ch Nephrite bị bẩn, bạn c&oacute; thể rửa bằng nước lọc hoặc c&aacute;c loại nước rửa đ&aacute; ngọc chuy&ecirc;n dụng.&nbsp;</li>\r\n</ul>', 'products\\August2021\\4zBvofooHJsoPemBfw9x.png', 18000000, 18000000, 18000000, 10, 'vong-tay-da-cam-thach-xanh', 'VÒNG TAY ĐÁ CẨM THẠCH XANH', NULL, NULL, '2021-08-13 23:39:00', '2021-08-14 00:16:04', 3, 1, NULL, 0, 0),
 (24, 'NHẪN VÀNG BỌC ĐÁ SAPHIA HỒNG', '<p><span style=\"color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; text-align: justify; background-color: #f4f4f4;\">Nhẫn phong thủy kh&ocirc;ng chỉ l&agrave; loại trang sức th&ocirc;ng thường m&agrave; theo quan niệm của người phương Đ&ocirc;ng th&igrave; việc đeo nhẫn phong thủy c&ograve;n mang &yacute; nghĩa t&acirc;m linh s&acirc;u sắc. Ng&agrave;y nay rất nhiều loại đ&aacute; qu&yacute; được chế t&aacute;c th&agrave;nh nhẫn với nhiều &yacute; nghĩa, mang lại vận kh&iacute; tốt, c&ocirc;ng danh sự nghiệp thịnh vượng, gặp nhiều may mắn trong cuộc sống.&nbsp;</span></p>', 'products\\August2021\\DX8zgbhl7iANWBmyU7mf.png', 3000000, 3000000, 3000000, 10, 'nhan-vang-boc-da-saphia-hong', 'NHẪN VÀNG BỌC ĐÁ SAPHIA HỒNG', NULL, NULL, '2021-08-14 00:26:50', '2021-08-14 00:26:50', 3, 1, NULL, 1, 0),
@@ -564,7 +573,7 @@ INSERT INTO `products` (`id`, `name`, `description`, `image`, `cost`, `price`, `
 (42, 'NHẪN VÀNG BỌC ĐÁ SAPHIA HỒNG', '<p><span style=\"color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; text-align: justify; background-color: #f4f4f4;\">Nhẫn phong thủy kh&ocirc;ng chỉ l&agrave; loại trang sức th&ocirc;ng thường m&agrave; theo quan niệm của người phương Đ&ocirc;ng th&igrave; việc đeo nhẫn phong thủy c&ograve;n mang &yacute; nghĩa t&acirc;m linh s&acirc;u sắc. Ng&agrave;y nay rất nhiều loại đ&aacute; qu&yacute; được chế t&aacute;c th&agrave;nh nhẫn với nhiều &yacute; nghĩa, mang lại vận kh&iacute; tốt, c&ocirc;ng danh sự nghiệp thịnh vượng, gặp nhiều may mắn trong cuộc sống.&nbsp;</span></p>', 'products\\August2021\\DX8zgbhl7iANWBmyU7mf.png', 3000000, 3000000, 3000000, 10, 'nhan-vang-boc-da-saphia-hong', 'NHẪN VÀNG BỌC ĐÁ SAPHIA HỒNG', NULL, NULL, '2021-08-14 00:26:50', '2021-08-14 00:26:50', 2, 1, NULL, 1, 0),
 (43, 'VÒNG TAY ĐÁ CẨM THẠCH XANH', '<p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4; text-align: justify;\"><span style=\"box-sizing: border-box;\">&Yacute; nghĩa v&ograve;ng tay ngọc b&iacute;ch:</span></p>\r\n<ul style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4;\">\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Trong H&aacute;n tự, chữ Vương th&ecirc;m một dấu chấm th&igrave; th&agrave;nh chữ Ngọc, &yacute; n&oacute;i ai d&ugrave;ng ngọc ắt phải người vương giả, gi&agrave;u sang. V&igrave; vậy c&aacute;c loại ngọc qu&yacute;, ti&ecirc;u biểu l&agrave; Ngọc B&iacute;ch Nephrite l&agrave; những vi&ecirc;n đ&aacute; mang gi&aacute; trị phong thủy cao, hỗ trợ rất tốt cho đường c&ocirc;ng danh t&agrave;i lộc.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Ngọc Nephrite được khai th&aacute;c chủ yếu ở British Columbia &ndash; một bang ở cực t&acirc;y đất nước Canada, ở Myanma, hay ở những cao nguy&ecirc;n đ&aacute; Trung Quốc hay T&acirc;y Tạng. Những khối đ&aacute; Ngọc B&iacute;ch rất cứng, để khai th&aacute;c ch&uacute;ng người ta phải sử dụng những mũi khoan Kim Cương đen. Kh&oacute; khăn trong qu&aacute; tr&igrave;nh khai th&aacute;c v&agrave; chế t&aacute;c th&agrave;nh phẩm khiến cho số lượng Ngọc B&iacute;ch được sản xuất hằng năm rất khi&ecirc;m tốn.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Ngọc B&iacute;ch Nephrite l&agrave; biểu tượng của quyền uy, danh vọng, l&agrave; đại diện của tầng lớp qu&yacute; tộc. Người ta c&ograve;n cho rằng Ngọc B&iacute;ch l&agrave; biểu tượng của b&igrave;nh an, may mắn. Ngọc B&iacute;ch tăng cường sức khỏe, c&oacute; t&aacute;c dụng k&eacute;o d&agrave;i tuổi thọ. Người mang Ngọc b&ecirc;n m&igrave;nh thường xuy&ecirc;n th&igrave; chống nhược thị, hỗ trợ lu&acirc;n chuyển những d&ograve;ng kh&iacute; trong cơ thể.</li>\r\n</ul>\r\n<p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4; text-align: justify;\"><span style=\"box-sizing: border-box;\">Để bảo quản v&ograve;ng tay Ngọc B&iacute;ch Nephrite, ta cần lưu &yacute;:</span></p>\r\n<ul style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4;\">\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Cũng giống như nhiều loại đ&aacute; qu&yacute; kh&aacute;c, khi sử dụng v&ograve;ng tay Ngọc B&iacute;ch Nephrite, bạn n&ecirc;n giữ g&igrave;n cẩn thận, tr&aacute;nh g&acirc;y va đập, trầy xước ảnh hưởng tới bề mặt vi&ecirc;n đ&aacute;.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Kh&ocirc;ng được để v&ograve;ng tay Ngọc B&iacute;ch Nephrite tiếp x&uacute;c với nhiệt hoặc axit.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Khi v&ograve;ng tay Ngọc B&iacute;ch Nephrite bị bẩn, bạn c&oacute; thể rửa bằng nước lọc hoặc c&aacute;c loại nước rửa đ&aacute; ngọc chuy&ecirc;n dụng.&nbsp;</li>\r\n</ul>', 'products\\August2021\\4zBvofooHJsoPemBfw9x.png', 18000000, 18000000, 18000000, 10, 'vong-tay-da-cam-thach-xanh', 'VÒNG TAY ĐÁ CẨM THẠCH XANH', NULL, NULL, '2021-08-13 23:39:00', '2021-08-14 00:16:04', 3, 1, NULL, 0, 0),
 (44, 'NHẪN VÀNG BỌC ĐÁ SAPHIA HỒNG', '<p><span style=\"color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; text-align: justify; background-color: #f4f4f4;\">Nhẫn phong thủy kh&ocirc;ng chỉ l&agrave; loại trang sức th&ocirc;ng thường m&agrave; theo quan niệm của người phương Đ&ocirc;ng th&igrave; việc đeo nhẫn phong thủy c&ograve;n mang &yacute; nghĩa t&acirc;m linh s&acirc;u sắc. Ng&agrave;y nay rất nhiều loại đ&aacute; qu&yacute; được chế t&aacute;c th&agrave;nh nhẫn với nhiều &yacute; nghĩa, mang lại vận kh&iacute; tốt, c&ocirc;ng danh sự nghiệp thịnh vượng, gặp nhiều may mắn trong cuộc sống.&nbsp;</span></p>', 'products\\August2021\\DX8zgbhl7iANWBmyU7mf.png', 3000000, 3000000, 3000000, 10, 'nhan-vang-boc-da-saphia-hong', 'NHẪN VÀNG BỌC ĐÁ SAPHIA HỒNG', NULL, NULL, '2021-08-14 00:26:50', '2021-08-14 00:26:50', 2, 1, NULL, 1, 0);
-INSERT INTO `products` (`id`, `name`, `description`, `image`, `cost`, `price`, `stock`, `views`, `slug`, `seo_title`, `seo_description`, `deleted_at`, `created_at`, `updated_at`, `category_id`, `vendor_id`, `user_id`, `gender`, `isHot`) VALUES
+INSERT INTO `products` (`id`, `name`, `description`, `image`, `cost`, `price`, `stock`, `views`, `slug`, `seo_title`, `seo_description`, `deleted_at`, `created_at`, `updated_at`, `category_id`, `stone_id`, `user_id`, `gender`, `isHot`) VALUES
 (45, 'VÒNG TAY ĐÁ CẨM THẠCH XANH', '<p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4; text-align: justify;\"><span style=\"box-sizing: border-box;\">&Yacute; nghĩa v&ograve;ng tay ngọc b&iacute;ch:</span></p>\r\n<ul style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4;\">\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Trong H&aacute;n tự, chữ Vương th&ecirc;m một dấu chấm th&igrave; th&agrave;nh chữ Ngọc, &yacute; n&oacute;i ai d&ugrave;ng ngọc ắt phải người vương giả, gi&agrave;u sang. V&igrave; vậy c&aacute;c loại ngọc qu&yacute;, ti&ecirc;u biểu l&agrave; Ngọc B&iacute;ch Nephrite l&agrave; những vi&ecirc;n đ&aacute; mang gi&aacute; trị phong thủy cao, hỗ trợ rất tốt cho đường c&ocirc;ng danh t&agrave;i lộc.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Ngọc Nephrite được khai th&aacute;c chủ yếu ở British Columbia &ndash; một bang ở cực t&acirc;y đất nước Canada, ở Myanma, hay ở những cao nguy&ecirc;n đ&aacute; Trung Quốc hay T&acirc;y Tạng. Những khối đ&aacute; Ngọc B&iacute;ch rất cứng, để khai th&aacute;c ch&uacute;ng người ta phải sử dụng những mũi khoan Kim Cương đen. Kh&oacute; khăn trong qu&aacute; tr&igrave;nh khai th&aacute;c v&agrave; chế t&aacute;c th&agrave;nh phẩm khiến cho số lượng Ngọc B&iacute;ch được sản xuất hằng năm rất khi&ecirc;m tốn.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Ngọc B&iacute;ch Nephrite l&agrave; biểu tượng của quyền uy, danh vọng, l&agrave; đại diện của tầng lớp qu&yacute; tộc. Người ta c&ograve;n cho rằng Ngọc B&iacute;ch l&agrave; biểu tượng của b&igrave;nh an, may mắn. Ngọc B&iacute;ch tăng cường sức khỏe, c&oacute; t&aacute;c dụng k&eacute;o d&agrave;i tuổi thọ. Người mang Ngọc b&ecirc;n m&igrave;nh thường xuy&ecirc;n th&igrave; chống nhược thị, hỗ trợ lu&acirc;n chuyển những d&ograve;ng kh&iacute; trong cơ thể.</li>\r\n</ul>\r\n<p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4; text-align: justify;\"><span style=\"box-sizing: border-box;\">Để bảo quản v&ograve;ng tay Ngọc B&iacute;ch Nephrite, ta cần lưu &yacute;:</span></p>\r\n<ul style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4;\">\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Cũng giống như nhiều loại đ&aacute; qu&yacute; kh&aacute;c, khi sử dụng v&ograve;ng tay Ngọc B&iacute;ch Nephrite, bạn n&ecirc;n giữ g&igrave;n cẩn thận, tr&aacute;nh g&acirc;y va đập, trầy xước ảnh hưởng tới bề mặt vi&ecirc;n đ&aacute;.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Kh&ocirc;ng được để v&ograve;ng tay Ngọc B&iacute;ch Nephrite tiếp x&uacute;c với nhiệt hoặc axit.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Khi v&ograve;ng tay Ngọc B&iacute;ch Nephrite bị bẩn, bạn c&oacute; thể rửa bằng nước lọc hoặc c&aacute;c loại nước rửa đ&aacute; ngọc chuy&ecirc;n dụng.&nbsp;</li>\r\n</ul>', 'products\\August2021\\4zBvofooHJsoPemBfw9x.png', 18000000, 18000000, 18000000, 10, 'vong-tay-da-cam-thach-xanh', 'VÒNG TAY ĐÁ CẨM THẠCH XANH', NULL, NULL, '2021-08-13 23:39:00', '2021-08-14 00:16:04', 3, 1, NULL, 0, 0),
 (46, 'NHẪN VÀNG BỌC ĐÁ SAPHIA HỒNG', '<p><span style=\"color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; text-align: justify; background-color: #f4f4f4;\">Nhẫn phong thủy kh&ocirc;ng chỉ l&agrave; loại trang sức th&ocirc;ng thường m&agrave; theo quan niệm của người phương Đ&ocirc;ng th&igrave; việc đeo nhẫn phong thủy c&ograve;n mang &yacute; nghĩa t&acirc;m linh s&acirc;u sắc. Ng&agrave;y nay rất nhiều loại đ&aacute; qu&yacute; được chế t&aacute;c th&agrave;nh nhẫn với nhiều &yacute; nghĩa, mang lại vận kh&iacute; tốt, c&ocirc;ng danh sự nghiệp thịnh vượng, gặp nhiều may mắn trong cuộc sống.&nbsp;</span></p>', 'products\\August2021\\DX8zgbhl7iANWBmyU7mf.png', 3000000, 3000000, 3000000, 10, 'nhan-vang-boc-da-saphia-hong', 'NHẪN VÀNG BỌC ĐÁ SAPHIA HỒNG', NULL, NULL, '2021-08-14 00:26:50', '2021-08-14 00:26:50', 2, 1, NULL, 1, 0),
 (47, 'VÒNG TAY ĐÁ CẨM THẠCH XANH', '<p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4; text-align: justify;\"><span style=\"box-sizing: border-box;\">&Yacute; nghĩa v&ograve;ng tay ngọc b&iacute;ch:</span></p>\r\n<ul style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4;\">\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Trong H&aacute;n tự, chữ Vương th&ecirc;m một dấu chấm th&igrave; th&agrave;nh chữ Ngọc, &yacute; n&oacute;i ai d&ugrave;ng ngọc ắt phải người vương giả, gi&agrave;u sang. V&igrave; vậy c&aacute;c loại ngọc qu&yacute;, ti&ecirc;u biểu l&agrave; Ngọc B&iacute;ch Nephrite l&agrave; những vi&ecirc;n đ&aacute; mang gi&aacute; trị phong thủy cao, hỗ trợ rất tốt cho đường c&ocirc;ng danh t&agrave;i lộc.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Ngọc Nephrite được khai th&aacute;c chủ yếu ở British Columbia &ndash; một bang ở cực t&acirc;y đất nước Canada, ở Myanma, hay ở những cao nguy&ecirc;n đ&aacute; Trung Quốc hay T&acirc;y Tạng. Những khối đ&aacute; Ngọc B&iacute;ch rất cứng, để khai th&aacute;c ch&uacute;ng người ta phải sử dụng những mũi khoan Kim Cương đen. Kh&oacute; khăn trong qu&aacute; tr&igrave;nh khai th&aacute;c v&agrave; chế t&aacute;c th&agrave;nh phẩm khiến cho số lượng Ngọc B&iacute;ch được sản xuất hằng năm rất khi&ecirc;m tốn.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Ngọc B&iacute;ch Nephrite l&agrave; biểu tượng của quyền uy, danh vọng, l&agrave; đại diện của tầng lớp qu&yacute; tộc. Người ta c&ograve;n cho rằng Ngọc B&iacute;ch l&agrave; biểu tượng của b&igrave;nh an, may mắn. Ngọc B&iacute;ch tăng cường sức khỏe, c&oacute; t&aacute;c dụng k&eacute;o d&agrave;i tuổi thọ. Người mang Ngọc b&ecirc;n m&igrave;nh thường xuy&ecirc;n th&igrave; chống nhược thị, hỗ trợ lu&acirc;n chuyển những d&ograve;ng kh&iacute; trong cơ thể.</li>\r\n</ul>\r\n<p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4; text-align: justify;\"><span style=\"box-sizing: border-box;\">Để bảo quản v&ograve;ng tay Ngọc B&iacute;ch Nephrite, ta cần lưu &yacute;:</span></p>\r\n<ul style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #222222; font-family: Roboto, sans-serif; font-size: 13.6px; background-color: #f4f4f4;\">\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Cũng giống như nhiều loại đ&aacute; qu&yacute; kh&aacute;c, khi sử dụng v&ograve;ng tay Ngọc B&iacute;ch Nephrite, bạn n&ecirc;n giữ g&igrave;n cẩn thận, tr&aacute;nh g&acirc;y va đập, trầy xước ảnh hưởng tới bề mặt vi&ecirc;n đ&aacute;.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Kh&ocirc;ng được để v&ograve;ng tay Ngọc B&iacute;ch Nephrite tiếp x&uacute;c với nhiệt hoặc axit.</li>\r\n<li style=\"box-sizing: border-box; text-align: justify;\">Khi v&ograve;ng tay Ngọc B&iacute;ch Nephrite bị bẩn, bạn c&oacute; thể rửa bằng nước lọc hoặc c&aacute;c loại nước rửa đ&aacute; ngọc chuy&ecirc;n dụng.&nbsp;</li>\r\n</ul>', 'products\\August2021\\4zBvofooHJsoPemBfw9x.png', 18000000, 18000000, 18000000, 10, 'vong-tay-da-cam-thach-xanh', 'VÒNG TAY ĐÁ CẨM THẠCH XANH', NULL, NULL, '2021-08-13 23:39:00', '2021-08-14 00:16:04', 3, 1, NULL, 0, 0),
@@ -589,7 +598,7 @@ INSERT INTO `products` (`id`, `name`, `description`, `image`, `cost`, `price`, `
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `product_images`
+-- Table structure for table `product_images`
 --
 
 CREATE TABLE `product_images` (
@@ -602,7 +611,7 @@ CREATE TABLE `product_images` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `product_images`
+-- Dumping data for table `product_images`
 --
 
 INSERT INTO `product_images` (`id`, `image`, `product_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
@@ -612,7 +621,7 @@ INSERT INTO `product_images` (`id`, `image`, `product_id`, `deleted_at`, `create
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -624,7 +633,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `created_at`, `updated_at`) VALUES
@@ -634,7 +643,7 @@ INSERT INTO `roles` (`id`, `name`, `display_name`, `created_at`, `updated_at`) V
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `settings`
+-- Table structure for table `settings`
 --
 
 CREATE TABLE `settings` (
@@ -649,7 +658,7 @@ CREATE TABLE `settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `settings`
+-- Dumping data for table `settings`
 --
 
 INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`, `order`, `group`) VALUES
@@ -667,7 +676,7 @@ INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`,
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `translations`
+-- Table structure for table `translations`
 --
 
 CREATE TABLE `translations` (
@@ -684,7 +693,7 @@ CREATE TABLE `translations` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -702,17 +711,17 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
 (1, 1, 'khanhlq', 'quockhanhk15tpm@gmail.com', 'users/default.png', NULL, '$2y$10$kHPtIzCFEp02QEyLUxR3N.J/Y7PeE4lS1bmDuvRSr637hQKv/iR8y', NULL, NULL, '2021-02-17 21:02:49', '2021-02-17 21:02:49'),
-(2, 1, 'Hoang Phan', 'phanthienhoang95@gmail.com', 'users\\August2021\\ybXDjNX2liixGyF3r1vv.png', NULL, '$2y$10$ksrmHKzY8B581fx4bfhs8ucbepIy7Tv6YwpZLs0nbgSRzAVejFQE6', NULL, '{\"locale\":\"en\"}', '2021-02-18 01:47:35', '2021-08-14 07:16:22');
+(2, 1, 'Hoang Phan', 'phanthienhoang95@gmail.com', 'users\\August2021\\ybXDjNX2liixGyF3r1vv.png', NULL, '$2y$10$kHPtIzCFEp02QEyLUxR3N.J/Y7PeE4lS1bmDuvRSr637hQKv/iR8y', NULL, '{\"locale\":\"en\"}', '2021-02-18 01:47:35', '2021-08-14 07:16:22');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `user_roles`
+-- Table structure for table `user_roles`
 --
 
 CREATE TABLE `user_roles` (
@@ -723,47 +732,44 @@ CREATE TABLE `user_roles` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `vendors`
+-- Table structure for table `vendors`
 --
 
 CREATE TABLE `vendors` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `vendors`
+-- Dumping data for table `vendors`
 --
 
-INSERT INTO `vendors` (`id`, `name`, `slug`, `email`, `address`, `phone`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'THANH XUÂN', 'da-quy-thanh-xuan', 'phanthienhoang95@gmail.com', '77 MINH MẠNG - HUẾ', '0708033319', NULL, NULL, NULL);
+INSERT INTO `vendors` (`id`, `name`, `slug`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'Đá Tourmaline', 'da-tourmaline', NULL, '2021-08-18 08:47:00', '2021-08-18 01:47:07');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `categories`
+-- Indexes for table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `data_rows`
+-- Indexes for table `data_rows`
 --
 ALTER TABLE `data_rows`
   ADD PRIMARY KEY (`id`),
   ADD KEY `data_rows_data_type_id_foreign` (`data_type_id`);
 
 --
--- Chỉ mục cho bảng `data_types`
+-- Indexes for table `data_types`
 --
 ALTER TABLE `data_types`
   ADD PRIMARY KEY (`id`),
@@ -771,53 +777,53 @@ ALTER TABLE `data_types`
   ADD UNIQUE KEY `data_types_slug_unique` (`slug`);
 
 --
--- Chỉ mục cho bảng `failed_jobs`
+-- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Chỉ mục cho bảng `menus`
+-- Indexes for table `menus`
 --
 ALTER TABLE `menus`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `menus_name_unique` (`name`);
 
 --
--- Chỉ mục cho bảng `menu_items`
+-- Indexes for table `menu_items`
 --
 ALTER TABLE `menu_items`
   ADD PRIMARY KEY (`id`),
   ADD KEY `menu_items_menu_id_foreign` (`menu_id`);
 
 --
--- Chỉ mục cho bảng `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `news`
+-- Indexes for table `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Chỉ mục cho bảng `permissions`
+-- Indexes for table `permissions`
 --
 ALTER TABLE `permissions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `permissions_key_index` (`key`);
 
 --
--- Chỉ mục cho bảng `permission_role`
+-- Indexes for table `permission_role`
 --
 ALTER TABLE `permission_role`
   ADD PRIMARY KEY (`permission_id`,`role_id`),
@@ -825,40 +831,40 @@ ALTER TABLE `permission_role`
   ADD KEY `permission_role_role_id_index` (`role_id`);
 
 --
--- Chỉ mục cho bảng `products`
+-- Indexes for table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `product_images`
+-- Indexes for table `product_images`
 --
 ALTER TABLE `product_images`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `roles_name_unique` (`name`);
 
 --
--- Chỉ mục cho bảng `settings`
+-- Indexes for table `settings`
 --
 ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `settings_key_unique` (`key`);
 
 --
--- Chỉ mục cho bảng `translations`
+-- Indexes for table `translations`
 --
 ALTER TABLE `translations`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `translations_table_name_column_name_foreign_key_locale_unique` (`table_name`,`column_name`,`foreign_key`,`locale`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -866,7 +872,7 @@ ALTER TABLE `users`
   ADD KEY `users_role_id_foreign` (`role_id`);
 
 --
--- Chỉ mục cho bảng `user_roles`
+-- Indexes for table `user_roles`
 --
 ALTER TABLE `user_roles`
   ADD PRIMARY KEY (`user_id`,`role_id`),
@@ -874,142 +880,142 @@ ALTER TABLE `user_roles`
   ADD KEY `user_roles_role_id_index` (`role_id`);
 
 --
--- Chỉ mục cho bảng `vendors`
+-- Indexes for table `vendors`
 --
 ALTER TABLE `vendors`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `categories`
+-- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT cho bảng `data_rows`
+-- AUTO_INCREMENT for table `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
--- AUTO_INCREMENT cho bảng `data_types`
+-- AUTO_INCREMENT for table `data_types`
 --
 ALTER TABLE `data_types`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT cho bảng `failed_jobs`
+-- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `menus`
+-- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `menu_items`
+-- AUTO_INCREMENT for table `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT cho bảng `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT cho bảng `news`
+-- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT cho bảng `permissions`
+-- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
--- AUTO_INCREMENT cho bảng `products`
+-- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
--- AUTO_INCREMENT cho bảng `product_images`
+-- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT cho bảng `roles`
+-- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT cho bảng `settings`
+-- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT cho bảng `translations`
+-- AUTO_INCREMENT for table `translations`
 --
 ALTER TABLE `translations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT cho bảng `vendors`
+-- AUTO_INCREMENT for table `vendors`
 --
 ALTER TABLE `vendors`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `data_rows`
+-- Constraints for table `data_rows`
 --
 ALTER TABLE `data_rows`
   ADD CONSTRAINT `data_rows_data_type_id_foreign` FOREIGN KEY (`data_type_id`) REFERENCES `data_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `menu_items`
+-- Constraints for table `menu_items`
 --
 ALTER TABLE `menu_items`
   ADD CONSTRAINT `menu_items_menu_id_foreign` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE;
 
 --
--- Các ràng buộc cho bảng `permission_role`
+-- Constraints for table `permission_role`
 --
 ALTER TABLE `permission_role`
   ADD CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 
 --
--- Các ràng buộc cho bảng `users`
+-- Constraints for table `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
 
 --
--- Các ràng buộc cho bảng `user_roles`
+-- Constraints for table `user_roles`
 --
 ALTER TABLE `user_roles`
   ADD CONSTRAINT `user_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
