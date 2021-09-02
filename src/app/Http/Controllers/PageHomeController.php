@@ -6,6 +6,7 @@ use App\Models\PageHome;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\News;
 
 
 class PageHomeController extends Controller
@@ -34,6 +35,18 @@ class PageHomeController extends Controller
     public function page_contact()
     {
         return view('mypage.page_contact.index');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function page_blog()
+    {
+        $news = News::all();
+        
+        return view('mypage.page_new.index', compact('news'));
     }
 
     /**
