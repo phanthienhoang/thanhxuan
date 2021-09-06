@@ -55,6 +55,7 @@
               <li><a href="{{route('page.product')}}">SẢN PHẨM</a></li>
               <li><a href="{{route('page.introduction')}}">GIỚI THIỆU</a></li>
               <li><a href="{{route('page.contact')}}">LIÊN HỆ</a></li>
+              <li><a href="{{route('page.blog')}}">TIN TỨC</a></li>
               <li><div class="main-white-button"><a href="#"><i class="fa fa-plus"></i> Giỏ Hàng</a></div></li> 
             </ul>
             <a class='menu-trigger'>

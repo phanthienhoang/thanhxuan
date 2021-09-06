@@ -44,6 +44,11 @@ Route::get(
 )->name('page.contact');
 
 Route::get(
+    '/tin-tuc',
+    [PageHomeController::class, 'page_blog']
+)->name('page.blog');
+
+Route::get(
     '/gioi-thieu',
     [PageHomeController::class, 'page_introduction']
 )->name('page.introduction');
