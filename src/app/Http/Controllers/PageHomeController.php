@@ -50,6 +50,18 @@ class PageHomeController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function page_blog_detail($slug = null)
+    {
+        $new = News::where('slug',$slug)->first();
+        
+        return view('mypage.page_new.detail', compact('new'));
+    }
+
+    /**
      * Display a listing of the resource.page_introduction
      *
      * @return \Illuminate\Http\Response
